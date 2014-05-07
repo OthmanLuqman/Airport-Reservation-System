@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    class Manger : Staff
+    class Manger 
     {
     }
 }

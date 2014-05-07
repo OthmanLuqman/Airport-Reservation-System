@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    public class Salesman : Staff
+    class AuthorizationSystem
     {
-        public Salesman(uint ID, String firstName, String lastName)
-            : base(ID, firstName, lastName)
+        public bool IsUserValid(String username, String password)
         {
-
+            return DBFacade.IsUserValid(username, password);
         }
     }
 }

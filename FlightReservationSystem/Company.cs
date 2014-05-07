@@ -12,6 +12,6 @@ namespace FlightReservationSystem
 
         String name;
 
-        
+        List<Airplane> airplanes;
     }
 }

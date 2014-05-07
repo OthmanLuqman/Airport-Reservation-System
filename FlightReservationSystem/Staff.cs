@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    class Staff: Person
+    public class Staff: Person
     {
+        public Staff(uint ID, String firstName, String lastName) 
+            : base(ID,firstName,lastName)
+        {
+            Console.WriteLine("Staff Info : {0} {1} {2}", ID, firstName, lastName);
+        }
     }
 }

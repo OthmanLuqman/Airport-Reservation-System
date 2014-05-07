@@ -1,1 +1,9 @@
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\bin\Debug\FlightReservationSystem.exe.config
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.csprojResolveAssemblyReference.cache
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.LoginPage.resources
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.Properties.Resources.resources
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.csproj.GenerateResource.Cache
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\bin\Debug\FlightReservationSystem.exe
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\bin\Debug\FlightReservationSystem.pdb
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.exe
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.pdb

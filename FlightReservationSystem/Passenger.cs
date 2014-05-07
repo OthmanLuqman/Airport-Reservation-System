@@ -11,7 +11,7 @@ enum Gender
 
 namespace FlightReservationSystem
 {
-    class Passenger : Person
+    class Passenger 
     {
         uint age;
         Gender gender;

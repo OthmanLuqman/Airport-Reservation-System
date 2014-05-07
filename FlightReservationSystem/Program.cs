@@ -14,9 +14,11 @@ namespace FlightReservationSystem
         [STAThread]
         static void Main()
         {
+            ReservationSystem reservationSystem = new ReservationSystem();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LoginPage(reservationSystem));
         }
     }
 }

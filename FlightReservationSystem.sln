@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightReservationSystem", "FlightReservationSystem\FlightReservationSystem.csproj", "{A724E32D-0F65-4280-9029-ABE239DA71E5}"
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "UMLS", "UMLS\UMLS.modelproj", "{D5D7AFCE-4191-482E-B10B-7F6D2F173024}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A724E32D-0F65-4280-9029-ABE239DA71E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A724E32D-0F65-4280-9029-ABE239DA71E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A724E32D-0F65-4280-9029-ABE239DA71E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D7AFCE-4191-482E-B10B-7F6D2F173024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D7AFCE-4191-482E-B10B-7F6D2F173024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D7AFCE-4191-482E-B10B-7F6D2F173024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D7AFCE-4191-482E-B10B-7F6D2F173024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
