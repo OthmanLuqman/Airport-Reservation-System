@@ -18,15 +18,34 @@ namespace FlightReservationSystem
     };
     class Flight
     {
+
+        public Flight(uint ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, DateTime actualDepartureDate, DateTime actualArrivalDate)
+        {
+            this.ID = ID;
+            this.airplane = airplane;
+            this.origin = origin;
+            this.destination = destination;
+            this.departureDate = departureDate;
+            this.arrivalDate = arrivalDate;
+            this.actualArrivalDate = actualArrivalDate;
+            this.actualDepartureDate = actualDepartureDate;
+        }
+
+        
+        public uint GetID()
+        {
+            return ID;
+        }
+
         uint ID;
 
         Airplane airplane;
         
-        Date departureDate;
-        Date arrivalDate;
+        DateTime departureDate;
+        DateTime arrivalDate;
 
-        Date actualDepartureDate;
-        Date actualArrivalDate;
+        DateTime actualDepartureDate;
+        DateTime actualArrivalDate;
 
         Airport origin;
         Airport destination;

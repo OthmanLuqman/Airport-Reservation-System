@@ -7,3 +7,4 @@ E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\bin\De
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\bin\Debug\FlightReservationSystem.pdb
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.exe
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.pdb
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.MainPage.resources

@@ -6,15 +6,31 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    struct Location
+    public struct Location
     {
+        public Location(String country, String city)
+        {
+            this.city = city;
+            this.country = country;
+        }
+
         String city;
         String country;
     };
 
     class Airport
     {
-        
+        public Airport(uint ID, String name , Location location)
+        {
+            this.ID = ID;
+            this.name = name;
+            this.location = location;
+        }
+        public uint GetID()
+        {
+            return ID;
+        }
+
         uint ID;
         String name;
         Location location;

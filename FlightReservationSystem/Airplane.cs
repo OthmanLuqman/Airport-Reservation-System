@@ -8,7 +8,17 @@ namespace FlightReservationSystem
 {
     class Airplane
     {
-        uint ID;
+        public Airplane(uint ID, uint capacity)
+        {
+            this.ID = ID;
+            this.capacity = capacity;
+        }
+
+        public uint GetID()
+        {
+            return ID;
+        }
+        uint ID; 
         uint capacity;
     }
 }

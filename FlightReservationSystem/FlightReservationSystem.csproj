@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Airplane.cs" />
     <Compile Include="Airport.cs" />
+    <Compile Include="AllAirplanes.cs" />
+    <Compile Include="AllAirports.cs" />
+    <Compile Include="AllFlights.cs" />
     <Compile Include="AuthorizationSystem.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="DBFacade.cs" />
@@ -56,6 +59,12 @@
     <Compile Include="LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage.Designer.cs">
+      <DependentUpon>MainPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manger.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Person.cs" />
@@ -64,9 +73,13 @@
     <Compile Include="Reservation.cs" />
     <Compile Include="ReservationSystem.cs" />
     <Compile Include="Salesman.cs" />
+    <Compile Include="ServiceFactory.cs" />
     <Compile Include="Staff.cs" />
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage.resx">
+      <DependentUpon>MainPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

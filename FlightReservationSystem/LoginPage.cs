@@ -22,7 +22,16 @@ namespace FlightReservationSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reservationSystem.Login(UsernameTextBox.Text, PasswordTextBox.Text);
+            if(reservationSystem.Login(UsernameTextBox.Text, PasswordTextBox.Text))
+            {
+                this.Close();
+                new MainPage().Show();
+            }
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

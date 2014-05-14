@@ -24,13 +24,13 @@ namespace FlightReservationSystem
 
         static public Salesman GetStaffByUsername(String username)
         {
-            SqlCommand cmd = new SqlCommand("GetStaffInfo", connection);
+            SqlCommand cmd = new SqlCommand("GetStaffinfo", connection);
             cmd.Parameters.AddWithValue("@username", username);
             cmd.CommandType = CommandType.StoredProcedure;
 
             DataTable dt = Select(cmd);
 
-            return new Salesman(uint.Parse(dt.Rows.Find("ID").ToString()), dt.Rows.Find("FirstName").ToString(), dt.Rows.Find("LastName").ToString());
+            return new Salesman(uint.Parse(dt.Rows[0]["ID"].ToString()), dt.Rows[0]["FirstName"].ToString(), dt.Rows[0]["LastName"].ToString());
         }
 
 
@@ -42,6 +42,33 @@ namespace FlightReservationSystem
             cmd.Parameters.AddWithValue("@password", password);
 
             cmd.CommandType = CommandType.StoredProcedure;
+            return Select(cmd);
+        }
+
+        static public DataTable GetFlights()
+        {
+            SqlCommand cmd = new SqlCommand("GetFlights", connection);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return Select(cmd);
+        }
+
+        static public DataTable GetAirports()
+        {
+            SqlCommand cmd = new SqlCommand("GetAirports", connection);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return Select(cmd);
+        }
+
+        static public DataTable GetAirplanes()
+        {
+            SqlCommand cmd = new SqlCommand("GetAirplanes", connection);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+
             return Select(cmd);
         }
 
