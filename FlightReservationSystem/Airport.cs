@@ -14,24 +14,39 @@ namespace FlightReservationSystem
             this.country = country;
         }
 
-        String city;
-        String country;
+        public String city;
+        public String country;
     };
 
     class Airport
     {
-        public Airport(uint ID, String name , Location location)
+        public Airport(Guid ID, String name , Location location)
+        {
+            Initial(ID, name, location);
+        }
+
+        public Airport(String name, Location location)
+        {
+            Initial(new Guid(), name, location);
+        }
+
+        private void Initial(Guid ID, String name , Location location)
         {
             this.ID = ID;
             this.name = name;
             this.location = location;
         }
-        public uint GetID()
+
+        public void SetID(Guid ID)
+        {
+            this.ID = ID;
+        }
+        public Guid GetID()
         {
             return ID;
         }
 
-        uint ID;
+        Guid ID;
         String name;
         Location location;
         

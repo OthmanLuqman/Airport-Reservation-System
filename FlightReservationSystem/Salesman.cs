@@ -8,8 +8,14 @@ namespace FlightReservationSystem
 {
     public class Salesman : Staff
     {
-        public Salesman(uint ID, String firstName, String lastName)
+        public Salesman(Guid ID, String firstName, String lastName)
             : base(ID, firstName, lastName)
+        {
+
+        }
+
+        public Salesman(String firstName, String lastName)
+            : base(new Guid(), firstName, lastName)
         {
 
         }

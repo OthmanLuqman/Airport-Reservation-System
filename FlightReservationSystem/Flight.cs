@@ -10,16 +10,26 @@ namespace FlightReservationSystem
 {
     struct Date
     {
-        uint year;
-        uint month;
-        uint day;
-        uint hour;
-        uint seconds;
+        Guid year;
+        Guid month;
+        Guid day;
+        Guid hour;
+        Guid seconds;
     };
     class Flight
     {
 
-        public Flight(uint ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, DateTime actualDepartureDate, DateTime actualArrivalDate)
+        public Flight(Guid ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, DateTime actualDepartureDate, DateTime actualArrivalDate)
+        {
+            Initial(ID, airplane, origin, destination, departureDate, arrivalDate, actualDepartureDate, actualArrivalDate);
+        }
+
+        public Flight(Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate)
+        {
+            Initial(new Guid(), airplane, origin, destination, departureDate, arrivalDate, new DateTime(), new DateTime());
+        }
+
+        private void Initial (Guid ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, DateTime actualDepartureDate, DateTime actualArrivalDate)
         {
             this.ID = ID;
             this.airplane = airplane;
@@ -32,12 +42,17 @@ namespace FlightReservationSystem
         }
 
         
-        public uint GetID()
+        public Guid GetID()
         {
             return ID;
         }
 
-        uint ID;
+        public void SetID(Guid ID)
+        {
+            this.ID = ID;
+        }
+
+        Guid ID;
 
         Airplane airplane;
         

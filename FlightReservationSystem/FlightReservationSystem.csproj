@@ -44,11 +44,39 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAirportPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAirportPage.Designer.cs">
+      <DependentUpon>AddAirportPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddCompanyPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCompanyPage.Designer.cs">
+      <DependentUpon>AddCompanyPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddFlightPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFlightPage.Designer.cs">
+      <DependentUpon>AddFlightPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddStaffPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStaffPage.Designer.cs">
+      <DependentUpon>AddStaffPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Airplane.cs" />
     <Compile Include="Airport.cs" />
     <Compile Include="AllAirplanes.cs" />
     <Compile Include="AllAirports.cs" />
+    <Compile Include="AllCompanies.cs" />
     <Compile Include="AllFlights.cs" />
+    <Compile Include="AllPassengers.cs" />
+    <Compile Include="AllReservations.cs" />
+    <Compile Include="AllStaffs.cs" />
     <Compile Include="AuthorizationSystem.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="DBFacade.cs" />
@@ -65,16 +93,35 @@
     <Compile Include="MainPage.Designer.cs">
       <DependentUpon>MainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manger.cs" />
+    <Compile Include="Manager.cs" />
     <Compile Include="Passenger.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
+    <Compile Include="ReservationPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationPage.Designer.cs">
+      <DependentUpon>ReservationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReservationSystem.cs" />
     <Compile Include="Salesman.cs" />
     <Compile Include="ServiceFactory.cs" />
     <Compile Include="Staff.cs" />
+    <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="AddAirportPage.resx">
+      <DependentUpon>AddAirportPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddCompanyPage.resx">
+      <DependentUpon>AddCompanyPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddFlightPage.resx">
+      <DependentUpon>AddFlightPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStaffPage.resx">
+      <DependentUpon>AddStaffPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +137,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReservationPage.resx">
+      <DependentUpon>ReservationPage.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

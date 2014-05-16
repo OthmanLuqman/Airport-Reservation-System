@@ -24,8 +24,8 @@ namespace FlightReservationSystem
         {
             if(reservationSystem.Login(UsernameTextBox.Text, PasswordTextBox.Text))
             {
-                this.Close();
-                new MainPage().Show();
+                new MainPage(reservationSystem).Show();
+                this.Hide();
             }
         }
 
