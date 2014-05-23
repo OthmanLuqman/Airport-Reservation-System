@@ -8,28 +8,25 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    struct Date
+
+    public enum FlightState
     {
-        Guid year;
-        Guid month;
-        Guid day;
-        Guid hour;
-        Guid seconds;
+        None, Arrived, Scheduled, Enroute, Delayed    
     };
-    class Flight
+    public class Flight
     {
 
-        public Flight(Guid ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, DateTime actualDepartureDate, DateTime actualArrivalDate)
+        public Flight(Guid ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, Nullable<DateTime> actualDepartureDate, Nullable<DateTime> actualArrivalDate, FlightState state, uint cost)
         {
-            Initial(ID, airplane, origin, destination, departureDate, arrivalDate, actualDepartureDate, actualArrivalDate);
+            Initial(ID, airplane, origin, destination, departureDate, arrivalDate, actualDepartureDate, actualArrivalDate, state, cost);
         }
 
-        public Flight(Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate)
+        public Flight(Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, uint cost)
         {
-            Initial(new Guid(), airplane, origin, destination, departureDate, arrivalDate, new DateTime(), new DateTime());
+            Initial(new Guid(), airplane, origin, destination, departureDate, arrivalDate, null, null, FlightState.Scheduled, cost);
         }
 
-        private void Initial (Guid ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, DateTime actualDepartureDate, DateTime actualArrivalDate)
+        private void Initial(Guid ID, Airplane airplane, Airport origin, Airport destination, DateTime departureDate, DateTime arrivalDate, Nullable<DateTime> actualDepartureDate, Nullable<DateTime> actualArrivalDate, FlightState state, uint cost)
         {
             this.ID = ID;
             this.airplane = airplane;
@@ -39,6 +36,8 @@ namespace FlightReservationSystem
             this.arrivalDate = arrivalDate;
             this.actualArrivalDate = actualArrivalDate;
             this.actualDepartureDate = actualDepartureDate;
+            this.flightState= state;
+            this.cost = cost;
         }
 
         
@@ -52,18 +51,21 @@ namespace FlightReservationSystem
             this.ID = ID;
         }
 
-        Guid ID;
+        public Guid ID;
 
-        Airplane airplane;
-        
-        DateTime departureDate;
-        DateTime arrivalDate;
+        public Airplane airplane;
 
-        DateTime actualDepartureDate;
-        DateTime actualArrivalDate;
+        public DateTime departureDate;
+        public DateTime arrivalDate;
 
-        Airport origin;
-        Airport destination;
+        public Nullable<DateTime> actualDepartureDate;
+        public Nullable<DateTime> actualArrivalDate;
 
+        public Airport origin;
+        public Airport destination;
+
+        public FlightState flightState;
+
+        public uint cost = 0;
     }
 }

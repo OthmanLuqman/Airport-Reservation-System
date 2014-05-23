@@ -6,19 +6,34 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    class Airplane
+    public class Airplane
     {
-        public Airplane(Guid ID, uint capacity)
+        public Airplane(Guid ID, String name,uint capacity)
+        {
+            Initial(ID, name, capacity);
+        }
+
+        public Airplane( String name, uint capacity)
+        {
+            Initial(new Guid(), name, capacity);
+        }
+
+        private void Initial(Guid ID, String name, uint capacity)
         {
             this.ID = ID;
             this.capacity = capacity;
+            this.name = name;
         }
+
+        
 
         public Guid GetID()
         {
             return ID;
         }
-        Guid ID; 
-        uint capacity;
+
+        public Guid ID; 
+        public uint capacity;
+        public String name;
     }
 }

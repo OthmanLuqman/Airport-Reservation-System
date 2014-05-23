@@ -12,7 +12,7 @@ namespace FlightReservationSystem
 
         public AllStaffs()
         {
-            DataTable staffTable = DBFacade.GetStaffs();
+            staffTable = DBFacade.GetStaffs();
             for (int i = 0; i < staffTable.Rows.Count; i++)
             {
                 Guid ID = Guid.Parse(staffTable.Rows[i]["ID"].ToString());
@@ -41,7 +41,12 @@ namespace FlightReservationSystem
             return null;
         }
 
+        public DataTable GetTable()
+        {
+            return staffTable;
+        }
 
+        DataTable staffTable;
         List<Staff> staffs = new List<Staff>();
     }
 }

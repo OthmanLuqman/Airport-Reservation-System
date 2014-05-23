@@ -20,14 +20,27 @@ namespace FlightReservationSystem
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            if(reservationSystem.Login(UsernameTextBox.Text, PasswordTextBox.Text))
+            Rank loggedInRank = reservationSystem.Login(UsernameTextBox.Text, PasswordTextBox.Text);
+
+            if (loggedInRank == Rank.Manager)
             {
-                new MainPage(reservationSystem).Show();
                 this.Hide();
+                var mainPage = new MainPage_Manager(reservationSystem);
+                mainPage.Closed += (sender2, args) => this.Close();
+                mainPage.Show();
+            }
+            else if (loggedInRank == Rank.Salesman)
+            {
+
+                this.Hide();
+                var mainPage = new MainPage(reservationSystem);
+                mainPage.Closed += (sender2, args) => this.Close();
+                mainPage.Show();
             }
         }
+
 
         private void LoginPage_Load(object sender, EventArgs e)
         {

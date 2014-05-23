@@ -32,10 +32,50 @@ namespace FlightReservationSystem
             Guid destinationAirportID = Guid.Parse(DestinationAirportTextBox.Text);
             DateTime departureDate = DepartureTimePicker.Value;
             DateTime arrivalDate = ArrivalTimePicker.Value;
+            uint cost = uint.Parse(CostTextBox.Text);
 
-            reservationSystem.AddFlight(planeID, originAirportID, destinationAirportID, departureDate, arrivalDate);
+            reservationSystem.AddFlight(planeID, originAirportID, destinationAirportID, departureDate, arrivalDate, cost);
         }
 
+        private void SearchPlaneIDButton_Click(object sender, EventArgs e)
+        {
+            SelectAirplanePage a = new SelectAirplanePage(reservationSystem);
+            a.SetIIDSelectionCallBack(new IDSelectionCallBack(SetPlaneID));
+            a.Show();
+        }
+
+        public void SetPlaneID(Guid ID)
+        {
+            this.PlaneIDTextBox.Text = ID.ToString();
+            //MessageBox.Show("Guid is " + ID);
+        }
+
+
+        private void SearchOriginAirportIDButton_Click(object sender, EventArgs e)
+        {
+            SelectAirportPage a = new SelectAirportPage(reservationSystem);
+            a.SetIIDSelectionCallBack(new IDSelectionCallBack(SetOriginAirportID));
+            a.Show();
+        }
+
+        public void SetOriginAirportID(Guid ID)
+        {
+            this.OriginAirportTextBox.Text = ID.ToString();
+            //MessageBox.Show("Guid is " + ID);
+        }
+
+        private void SearchDestinationAirportIDButton_Click(object sender, EventArgs e)
+        {
+            SelectAirportPage a = new SelectAirportPage(reservationSystem);
+            a.SetIIDSelectionCallBack(new IDSelectionCallBack(SetDestinationAirportID));
+            a.Show();
+        }
+
+        public void SetDestinationAirportID(Guid ID)
+        {
+            this.DestinationAirportTextBox.Text = ID.ToString();
+            //MessageBox.Show("Guid is " + ID);
+        }
 
     }
 }

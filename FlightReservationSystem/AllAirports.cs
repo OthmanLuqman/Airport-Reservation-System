@@ -11,7 +11,7 @@ namespace FlightReservationSystem
     {
         public AllAirports()
         {
-            DataTable airpotTable = DBFacade.GetAirports();
+            airpotTable = DBFacade.GetAirports();
             for (int i = 0; i < airpotTable.Rows.Count; i++)
             {
                 Guid ID = Guid.Parse(airpotTable.Rows[i]["ID"].ToString());
@@ -43,6 +43,12 @@ namespace FlightReservationSystem
             airports.Add(airport);
         }
 
+        public DataTable GetTable()
+        {
+            return airpotTable;
+        }
+
+        DataTable airpotTable;
         List<Airport> airports = new List<Airport>();
      }
 

@@ -33,8 +33,8 @@ namespace FlightReservationSystem
             this.ID = ID;
         }
 
-        Guid ID;
-        String firstName;
-        String lastName;
+        public Guid ID;
+        public String firstName;
+        public String lastName;
     }
 }

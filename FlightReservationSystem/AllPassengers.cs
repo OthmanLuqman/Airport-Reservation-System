@@ -17,7 +17,7 @@ namespace FlightReservationSystem
         public void Update()
         {
             passengers.Clear();
-            DataTable passengerTable = DBFacade.GetPassengers();
+            passengerTable = DBFacade.GetPassengers();
             for (int i = 0; i < passengerTable.Rows.Count; i++)
             {
                 Guid ID = Guid.Parse(passengerTable.Rows[i]["ID"].ToString());
@@ -48,6 +48,12 @@ namespace FlightReservationSystem
             passengers.Add(passenger);
         }
 
+        public DataTable GetTable()
+        {
+            return passengerTable;
+        }
+
+        DataTable passengerTable = null;
         List<Passenger> passengers = new List<Passenger>();
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightReservationSystem
 {
-    class Company
+    public class Company
     {
         public Company(Guid ID, String name)
         {
@@ -25,10 +25,10 @@ namespace FlightReservationSystem
             this.ID = ID;
         }
 
-        Guid ID;
+        public Guid ID;
 
-        String name;
+        public String name;
 
-        List<Airplane> airplanes;
+        public List<Airplane> airplanes;
     }
 }

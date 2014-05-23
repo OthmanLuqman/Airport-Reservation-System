@@ -28,45 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
             this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.PasswordTextBox = new System.Windows.Forms.TextBox();
             this.Login = new System.Windows.Forms.Button();
+            this.UsernameLabel = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // UsernameTextBox
             // 
-            this.UsernameTextBox.Location = new System.Drawing.Point(262, 107);
+            resources.ApplyResources(this.UsernameTextBox, "UsernameTextBox");
             this.UsernameTextBox.Name = "UsernameTextBox";
-            this.UsernameTextBox.Size = new System.Drawing.Size(127, 20);
-            this.UsernameTextBox.TabIndex = 0;
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(262, 133);
+            resources.ApplyResources(this.PasswordTextBox, "PasswordTextBox");
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(127, 20);
-            this.PasswordTextBox.TabIndex = 1;
             // 
             // Login
             // 
-            this.Login.Location = new System.Drawing.Point(283, 159);
+            resources.ApplyResources(this.Login, "Login");
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(75, 23);
-            this.Login.TabIndex = 2;
-            this.Login.Text = "Login";
             this.Login.UseVisualStyleBackColor = true;
-            this.Login.Click += new System.EventHandler(this.button1_Click);
+            this.Login.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // UsernameLabel
+            // 
+            resources.ApplyResources(this.UsernameLabel, "UsernameLabel");
+            this.UsernameLabel.Name = "UsernameLabel";
+            // 
+            // PasswordLabel
+            // 
+            resources.ApplyResources(this.PasswordLabel, "PasswordLabel");
+            this.PasswordLabel.Name = "PasswordLabel";
             // 
             // LoginPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(625, 318);
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.Controls.Add(this.PasswordLabel);
+            this.Controls.Add(this.UsernameLabel);
             this.Controls.Add(this.Login);
             this.Controls.Add(this.PasswordTextBox);
             this.Controls.Add(this.UsernameTextBox);
             this.Name = "LoginPage";
-            this.Text = "LoginPage";
             this.Load += new System.EventHandler(this.LoginPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -78,5 +85,7 @@
         private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.Label UsernameLabel;
+        private System.Windows.Forms.Label PasswordLabel;
     }
 }

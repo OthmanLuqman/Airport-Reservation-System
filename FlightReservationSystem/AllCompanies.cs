@@ -18,7 +18,7 @@ namespace FlightReservationSystem
         {
             companies.Clear();
 
-            DataTable companyTable = DBFacade.GetCompanies();
+            companyTable = DBFacade.GetCompanies();
 
             for (int i = 0; i < companyTable.Rows.Count; i++)
             {
@@ -33,6 +33,26 @@ namespace FlightReservationSystem
         {
             companies.Add(company);
         }
+
+        public Company GetCopmanyByID(Guid ID)
+        {
+            foreach(Company c in companies)
+            {
+                if (c.ID.Equals(ID))
+                    return c;
+            }
+            return null;
+
+        }
+
+        public DataTable GetTable()
+        {
+            return companyTable;
+        }
+
+
+
+        DataTable companyTable;
 
         List<Company> companies = new List<Company>();
     }

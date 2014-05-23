@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace FlightReservationSystem
 {
@@ -15,34 +16,41 @@ namespace FlightReservationSystem
         {
             authorizationSystem = new AuthorizationSystem();
         }
-        public bool Login(String username, String password)
+        public Rank Login(String username, String password)
         {
             if (authorizationSystem.IsUserValid(username, password))
             {
-                CreateAndSetSalesman(username);
-                return true;
+                CreateAndSetStaff(username);
+                return Utilities.GetStaffRank(currentStaff);
             }
             else
             {
                 Console.WriteLine("User Or Name is not valid");
-                return false;
+                return Rank.None;
             }
         }
 
-        private void CreateAndSetSalesman(String username)
+        private void CreateAndSetStaff(String username)
         {
-            salesman = DBFacade.GetStaffByUsername(username);
+            currentStaff = DBFacade.GetStaffByUsername(username);
         }
 
-        public void ReserveFlight(Guid flightID, String fName, String lName, uint age, Gender gender, String nationalCode, List<uint> Seats)
+        public void CancelReservation(Guid reservationID)
+        {
+            //ServiceFactory.GetReserations().RemoveReservationByID(reservationID);
+
+            DBFacade.CancelReservation(reservationID);
+        }
+
+        public void AddReservation(Guid flightID, String fName, String lName, uint age, Gender gender, String nationalCode, uint seatNumber)
         {
             Flight f = ServiceFactory.GetFlights().GetFlightByID(flightID);
 
+            //TO it in try catch block
+
             Passenger p = CreateAndInsertPassenger(fName, lName, age, gender, nationalCode);
 
-            
-           
-            //TODO add flight 
+            CreateAndInsertReservation(f, p, currentStaff, seatNumber);
         }
 
         private Passenger CreateAndInsertPassenger(String fName, String lName, uint age, Gender gender, String nationalCode)
@@ -57,14 +65,16 @@ namespace FlightReservationSystem
             return passenger;
         }
 
-        private void CreateAndInsertReservation(Flight flight, Passenger passenger, Staff salesman, List<uint> seats)
+        private void CreateAndInsertReservation(Flight flight, Passenger passenger, Staff salesman, uint seatNumber)
         {
             //TODO: I must set time to time inserted in DB
-            Reservation reservation = new Reservation(flight, passenger, salesman, seats,new DateTime());
+            Reservation reservation = new Reservation(flight, passenger, salesman, seatNumber,new DateTime(),ReservationState.Resereved, null);
 
             ServiceFactory.GetReserations().AddReservation(reservation);
 
-            Guid reservationID = DBFacade.InsertReservationAndReturnID(flight.GetID(), passenger.GetID(), seats);
+            Guid reservationID = DBFacade.InsertReservationAndReturnID(flight.GetID(), passenger.GetID(), currentStaff.GetID(), seatNumber);
+
+            reservation.SetID(reservationID);
         }
 
         public void AddCompany(String name)
@@ -99,7 +109,16 @@ namespace FlightReservationSystem
             airport.SetID(airportID);
         }
 
-        public void AddFlight( Guid planeID, Guid originAirportID, Guid destinationAirportID, DateTime departureDate, DateTime arrivalDate)
+        public void AddAirplane(String name, Guid companyID, uint capacity)
+        {
+            Airplane airplane = new Airplane(name, capacity);
+            ServiceFactory.GetAirplanes().AddAirplane(airplane);
+
+            Guid airplaneID = DBFacade.InsertAirplaneAndReturnID(name, companyID, capacity);
+            airplane.ID = airplaneID;
+        }
+
+        public void AddFlight( Guid planeID, Guid originAirportID, Guid destinationAirportID, DateTime departureDate, DateTime arrivalDate, uint cost)
         {
 
             Airport origin = ServiceFactory.GetAirports().GetAirportByID(originAirportID);
@@ -107,18 +126,93 @@ namespace FlightReservationSystem
 
             Airplane plane = ServiceFactory.GetAirplanes().GetPlaneByID(planeID);
 
-            Flight flight = new Flight(plane, origin, destination, departureDate, arrivalDate);
+            Flight flight = new Flight(plane, origin, destination, departureDate, arrivalDate,cost);
 
             ServiceFactory.GetFlights().AddFlight(flight);
 
-            Guid flightID = DBFacade.InsertFlightAndReturnID(planeID, originAirportID, destinationAirportID, departureDate, arrivalDate);
+            Guid flightID = DBFacade.InsertFlightAndReturnID(planeID, originAirportID, destinationAirportID, departureDate, arrivalDate, cost);
             flight.SetID(flightID);
         }
 
-        Salesman salesman;
+        public void UpdateFlight(Guid flightID, FlightState newState, Nullable<DateTime> newActualDepartureDate, Nullable<DateTime> newActualArrivalDate)
+        {
+            Flight f = ServiceFactory.GetFlights().GetFlightByID(flightID);
+            f.flightState = newState;
+            f.actualArrivalDate = newActualArrivalDate;
+            f.actualDepartureDate = newActualDepartureDate;
+
+            DBFacade.UpdateFlight(flightID, newState.ToString(), newActualDepartureDate, newActualArrivalDate);
+        }
+        public DataTable GetFlightsTable()
+        {
+            return ServiceFactory.GetFlights().GetTable();
+        }
+
+        public DataTable GetPassengersTable()
+        {
+            return ServiceFactory.GetPassengers().GetTable();
+        }
+
+        public DataTable GetCompaniesTable()
+        {
+            return ServiceFactory.GetCompanies().GetTable();
+        }
+
+        public DataTable GetAirportsTable()
+        {
+            return ServiceFactory.GetAirports().GetTable();
+        }
+
+        public DataTable GetReservationsTable()
+        {
+            return ServiceFactory.GetReserations().GetTable();
+        }
+
+        public DataTable GetStaffsTable()
+        {
+            return ServiceFactory.GetStaffs().GetTable();
+        }
+
+        public DataTable GetAirplanesTable()
+        {
+            return ServiceFactory.GetAirplanes().GetTable();
+        }
+
+        public Airport GetAirportByID(Guid ID)
+        {
+            return ServiceFactory.GetAirports().GetAirportByID(ID);
+        }
+
+        public Airplane GetPlaneByID(Guid ID)
+        {
+            return ServiceFactory.GetAirplanes().GetPlaneByID(ID);
+        }
+
+        public Passenger GetPassengerByID(Guid ID)
+        {
+            return ServiceFactory.GetPassengers().GetPassengerByID(ID);
+        }
+
+        public Staff GetStaffByID(Guid ID)
+        {
+            return ServiceFactory.GetStaffs().GetStaffByID(ID);
+        }
+
+        public Flight GetFlightByID(Guid ID)
+        {
+            return ServiceFactory.GetFlights().GetFlightByID(ID);
+        }
+
+        public Company GetCompanyByID(Guid ID)
+        {
+            return ServiceFactory.GetCompanies().GetCopmanyByID(ID);
+        }
+
+        public void UpdateTables()
+        {
+
+        }
+
+        Staff currentStaff;
     }
-
-
-
-
 }

@@ -18,7 +18,7 @@ namespace FlightReservationSystem
         public String country;
     };
 
-    class Airport
+    public class Airport
     {
         public Airport(Guid ID, String name , Location location)
         {
@@ -46,9 +46,9 @@ namespace FlightReservationSystem
             return ID;
         }
 
-        Guid ID;
-        String name;
-        Location location;
+        public Guid ID;
+        public String name;
+        public Location location;
         
 
     }

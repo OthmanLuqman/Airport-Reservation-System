@@ -27,6 +27,15 @@ namespace FlightReservationSystem
             return Gender.male;
         }
 
+        static public Rank GetStaffRank(Staff staff)
+        {
+            if (staff is Manager)
+                return Rank.Manager;
+            else if (staff is Salesman)
+                return Rank.Salesman;
+
+            return Rank.None;
+        }
         static public Rank StringToRank(string rankStr)
         {
             rankStr = rankStr.ToLower();
@@ -37,10 +46,46 @@ namespace FlightReservationSystem
                 case "salesman":
                     return Rank.Salesman;
                 default:
-                    Debug.Assert(false,"Invalid String for Rank");
+                    Debug.Assert(false,"Invalid String for Rank : " + rankStr);
                     break;
             }
             return Rank.Salesman;
+        }
+
+        static public FlightState StringToFlightState(string stateStr)
+        {
+            stateStr = stateStr.ToLower();
+            switch (stateStr)
+            {
+                case "scheduled":
+                    return FlightState.Scheduled;
+                case "arrived":
+                    return FlightState.Arrived;
+                case "enroute":
+                    return FlightState.Enroute;
+                case "delayed":
+                    return FlightState.Delayed;
+                default:
+                    Debug.Assert(false, "Invalid String for FlightState");
+                    break;
+            }
+            return FlightState.None;
+        }
+
+        static public ReservationState StringToReservationState(string stateStr)
+        {
+            stateStr = stateStr.ToLower();
+            switch (stateStr)
+            {
+                case "reserved":
+                    return ReservationState.Resereved;
+                case "canceled":
+                    return ReservationState.Canceled;
+                default:
+                    Debug.Assert(false, "Invalid String for Reservation State : " + stateStr);
+                    break;
+            }
+            return ReservationState.None;
         }
 
         static public Staff CreateStaff(Rank rank, String fName, String lName, Guid ID = new Guid())

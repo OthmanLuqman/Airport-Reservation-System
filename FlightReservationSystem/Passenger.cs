@@ -15,7 +15,7 @@ namespace FlightReservationSystem
 
 
 
-    class Passenger : Person
+    public class Passenger : Person
     {
         public Passenger(Guid ID, String firstName, String lastName, uint age, Gender gender, String nationalCode) 
             : base(ID,firstName,lastName)
@@ -36,9 +36,9 @@ namespace FlightReservationSystem
         }
 
 
-        uint age;
-        Gender gender;
-        String nationalCode;
+        public uint age;
+        public Gender gender;
+        public String nationalCode;
 
     }
 }

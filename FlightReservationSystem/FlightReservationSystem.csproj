@@ -62,6 +62,12 @@
     <Compile Include="AddFlightPage.Designer.cs">
       <DependentUpon>AddFlightPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddPlanePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddPlanePage.Designer.cs">
+      <DependentUpon>AddPlanePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddStaffPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,24 @@
     </Compile>
     <Compile Include="Airplane.cs" />
     <Compile Include="Airport.cs" />
+    <Compile Include="DisplaySeatsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplaySeatsPage.Designer.cs">
+      <DependentUpon>DisplaySeatsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectAirplanePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectAirplanePage.Designer.cs">
+      <DependentUpon>SelectAirplanePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SelectAirportPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectAirportPage.Designer.cs">
+      <DependentUpon>SelectAirportPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllAirplanes.cs" />
     <Compile Include="AllAirports.cs" />
     <Compile Include="AllCompanies.cs" />
@@ -78,20 +102,89 @@
     <Compile Include="AllReservations.cs" />
     <Compile Include="AllStaffs.cs" />
     <Compile Include="AuthorizationSystem.cs" />
+    <Compile Include="CalendarColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CancelReservationPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelReservationPage.Designer.cs">
+      <DependentUpon>CancelReservationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Company.cs" />
+    <Compile Include="SelectCopmanyPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectCopmanyPage.Designer.cs">
+      <DependentUpon>SelectCopmanyPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBFacade.cs" />
+    <Compile Include="DisplayAirplanesPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayAirplanesPage.Designer.cs">
+      <DependentUpon>DisplayAirplanesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayAirportsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayAirportsPage.Designer.cs">
+      <DependentUpon>DisplayAirportsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayCompaniesPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayCompaniesPage.Designer.cs">
+      <DependentUpon>DisplayCompaniesPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayFlightsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayFlightsPage.Designer.cs">
+      <DependentUpon>DisplayFlightsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayReservationsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayReservationsPage.Designer.cs">
+      <DependentUpon>DisplayReservationsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DisplayStaffsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayStaffsPage.Designer.cs">
+      <DependentUpon>DisplayStaffsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Flight.cs" />
+    <Compile Include="SelectFlightPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SelectFlightPage.Designer.cs">
+      <DependentUpon>SelectFlightPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginPage.Designer.cs">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.cs">
+    <Compile Include="MainPage_Manager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainPage.Designer.cs">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <Compile Include="MainPage_Manager.Designer.cs">
+      <DependentUpon>MainPage_Manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage_Base.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage_Base.Designer.cs">
+      <DependentUpon>MainPage_Base.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage_Salesman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainPage_Salesman.Designer.cs">
+      <DependentUpon>MainPage_Salesman.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Passenger.cs" />
@@ -99,11 +192,11 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />
-    <Compile Include="ReservationPage.cs">
+    <Compile Include="AddReservationPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReservationPage.Designer.cs">
-      <DependentUpon>ReservationPage.cs</DependentUpon>
+    <Compile Include="AddReservationPage.Designer.cs">
+      <DependentUpon>AddReservationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="ReservationSystem.cs" />
     <Compile Include="Salesman.cs" />
@@ -119,14 +212,53 @@
     <EmbeddedResource Include="AddFlightPage.resx">
       <DependentUpon>AddFlightPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddPlanePage.resx">
+      <DependentUpon>AddPlanePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddStaffPage.resx">
       <DependentUpon>AddStaffPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CancelReservationPage.resx">
+      <DependentUpon>CancelReservationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayAirplanesPage.resx">
+      <DependentUpon>DisplayAirplanesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayAirportsPage.resx">
+      <DependentUpon>DisplayAirportsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayCompaniesPage.resx">
+      <DependentUpon>DisplayCompaniesPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayFlightsPage.resx">
+      <DependentUpon>DisplayFlightsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayReservationsPage.resx">
+      <DependentUpon>DisplayReservationsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplaySeatsPage.resx">
+      <DependentUpon>DisplaySeatsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DisplayStaffsPage.resx">
+      <DependentUpon>DisplayStaffsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginPage.fa.resx">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SelectFlightPage.resx">
+      <DependentUpon>SelectFlightPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainPage.resx">
-      <DependentUpon>MainPage.cs</DependentUpon>
+    <EmbeddedResource Include="MainPage_Manager.resx">
+      <DependentUpon>MainPage_Manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage_Base.resx">
+      <DependentUpon>MainPage_Base.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainPage_Salesman.resx">
+      <DependentUpon>MainPage_Salesman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,8 +269,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ReservationPage.resx">
-      <DependentUpon>ReservationPage.cs</DependentUpon>
+    <EmbeddedResource Include="AddReservationPage.resx">
+      <DependentUpon>AddReservationPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

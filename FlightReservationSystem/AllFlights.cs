@@ -12,7 +12,7 @@ namespace FlightReservationSystem
     {
         public AllFlights()
         {
-            DataTable flightTable = DBFacade.GetFlights();
+            flightTable = DBFacade.GetFlights();
 
             AllAirplanes allPlanes = ServiceFactory.GetAirplanes();
             AllAirports allAirports = ServiceFactory.GetAirports();
@@ -27,15 +27,31 @@ namespace FlightReservationSystem
                 Guid originID = Guid.Parse(flightTable.Rows[i]["originAirportID"].ToString());
                 Airport origin = allAirports.GetAirportByID(originID);
 
-                Guid destinationID = Guid.Parse(flightTable.Rows[i]["originAirportID"].ToString());
+                Guid destinationID = Guid.Parse(flightTable.Rows[i]["destinationAirportID"].ToString());
                 Airport destination = allAirports.GetAirportByID(destinationID);
 
                 DateTime arrivalDate = DateTime.Parse(flightTable.Rows[i]["arrivalDate"].ToString());
                 DateTime departureDate = DateTime.Parse(flightTable.Rows[i]["departureDate"].ToString());
-                DateTime actualArrivalDate = DateTime.Parse(flightTable.Rows[i]["actualArrivalDate"].ToString());
-                DateTime actualDepartureDate = DateTime.Parse(flightTable.Rows[i]["actualDepartureDate"].ToString());
 
-                flights.Add(new Flight(ID, airplane, origin, destination, departureDate, arrivalDate, actualDepartureDate, actualArrivalDate));
+                String actualArrivalDateStr = flightTable.Rows[i]["actualArrivalDate"].ToString();
+                Nullable<DateTime> actualArrivalDate= null;
+                if(!actualArrivalDateStr.Equals(""))
+                    actualArrivalDate = DateTime.Parse(actualArrivalDateStr);
+
+
+
+                String actualDepartureDateStr = flightTable.Rows[i]["actualDepartureDate"].ToString();
+                Nullable<DateTime> actualDepartureDate = null;
+                if (!actualDepartureDateStr.Equals(""))
+                    actualDepartureDate = DateTime.Parse(actualDepartureDateStr);
+
+
+                String flightStateStr = flightTable.Rows[i]["State"].ToString();
+                FlightState flightState = Utilities.StringToFlightState(flightStateStr);
+
+                uint cost = uint.Parse(flightTable.Rows[i]["Cost"].ToString());
+
+                flights.Add(new Flight(ID, airplane, origin, destination, departureDate, arrivalDate, actualDepartureDate, actualArrivalDate, flightState, cost));
             }
         }
 
@@ -55,6 +71,13 @@ namespace FlightReservationSystem
         {
             flights.Add(flight);
         }
+
+        public DataTable GetTable()
+        {
+            return flightTable;
+        }
+
+        DataTable flightTable = null;
 
         List<Flight> flights = new List<Flight>();
     }

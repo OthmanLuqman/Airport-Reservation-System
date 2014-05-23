@@ -8,7 +8,7 @@ namespace FlightReservationSystem
 {
     public enum Rank
     {
-        Manager, Salesman
+        None, Manager, Salesman
     };
 
     abstract public class Staff: Person

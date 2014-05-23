@@ -12,7 +12,7 @@ namespace FlightReservationSystem
 
         public AllReservations()
         {
-            DataTable reservationTable = DBFacade.GetReservations();
+            reservationTable = DBFacade.GetReservations();
 
             for (int i = 0; i < reservationTable.Rows.Count; i++)
             {
@@ -29,9 +29,17 @@ namespace FlightReservationSystem
 
                 DateTime reservationTime = DateTime.Parse(reservationTable.Rows[i]["ReservationTime"].ToString());
 
-                List<uint> seats = new List<uint>();
+                String cancelTimeStr = reservationTable.Rows[i]["cancelTime"].ToString();
+                Nullable<DateTime> cancelTime= null;
+                if(!cancelTimeStr.Equals(""))
+                    cancelTime = DateTime.Parse(cancelTimeStr);
 
-                reservations.Add(new Reservation(ID,flight,passenger,staff, seats,reservationTime));
+                uint seatNumber = uint.Parse(reservationTable.Rows[i]["SeatNumber"].ToString());
+
+                ReservationState state = Utilities.StringToReservationState(reservationTable.Rows[i]["State"].ToString());
+
+
+                reservations.Add(new Reservation(ID, flight, passenger, staff, seatNumber, reservationTime, state, cancelTime));
             }
         }
 
@@ -40,8 +48,31 @@ namespace FlightReservationSystem
             reservations.Add(reservation);
         }
 
-        
+        public void RemoveReservationByID(Guid ID)
+        {
+            Reservation res = GetReservationByID(ID);
+            reservations.Remove(res);
+        }
 
+        public Reservation GetReservationByID(Guid ID)
+        {
+            for(int i  = 0 ; i< reservations.Count; ++i)
+            {
+                if (reservations[i].GetID() == ID)
+                    return reservations[i];
+            }
+
+            //TODO: throw exception
+            return null;
+        }
+
+        public DataTable GetTable()
+        {
+            return reservationTable;
+        }
+
+
+        DataTable reservationTable;
         List<Reservation> reservations = new List<Reservation>();
     }
 
