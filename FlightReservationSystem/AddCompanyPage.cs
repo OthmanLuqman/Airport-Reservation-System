@@ -23,6 +23,7 @@ namespace FlightReservationSystem
         {
             String companyName = CompanyNameTextBox.Text;
             reservationSystem.AddCompany(companyName);
+            this.Close();
         }
     }
 }

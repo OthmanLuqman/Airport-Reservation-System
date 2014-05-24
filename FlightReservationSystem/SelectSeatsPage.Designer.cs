@@ -1,6 +1,7 @@
-﻿namespace FlightReservationSystem
+﻿using System.Windows.Forms;
+namespace FlightReservationSystem
 {
-    partial class DisplaySeatsPage
+    partial class SelectSeatsPage
     {
         /// <summary>
         /// Required designer variable.
@@ -34,15 +35,24 @@
             // 
             // SeatsGridView
             // 
+            this.SeatsGridView.AllowUserToAddRows = false;
             this.SeatsGridView.AllowUserToDeleteRows = false;
+            this.SeatsGridView.AllowUserToResizeColumns = false;
+            this.SeatsGridView.AllowUserToResizeRows = false;
             this.SeatsGridView.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             this.SeatsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SeatsGridView.ColumnHeadersVisible = false;
             this.SeatsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SeatsGridView.Location = new System.Drawing.Point(0, 0);
+            this.SeatsGridView.MultiSelect = false;
             this.SeatsGridView.Name = "SeatsGridView";
             this.SeatsGridView.ReadOnly = true;
+            this.SeatsGridView.RowHeadersVisible = false;
             this.SeatsGridView.Size = new System.Drawing.Size(1113, 397);
             this.SeatsGridView.TabIndex = 0;
+
+            this.SeatsGridView.CellDoubleClick += new DataGridViewCellEventHandler(OnCellDoubleClicked);
+
             // 
             // DisplaySeatsPage
             // 

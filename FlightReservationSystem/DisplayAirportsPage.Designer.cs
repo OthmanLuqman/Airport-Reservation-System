@@ -36,97 +36,128 @@
             this.AirportCountryLabel = new System.Windows.Forms.Label();
             this.AirportCityLabel = new System.Windows.Forms.Label();
             this.SearchAirportButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.AirportGridView)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // FlightGridView
+            // AirportGridView
             // 
+            this.AirportGridView.AllowUserToAddRows = false;
+            this.AirportGridView.AllowUserToDeleteRows = false;
+            this.AirportGridView.AllowUserToOrderColumns = true;
+            this.AirportGridView.AllowUserToResizeColumns = false;
+            this.AirportGridView.AllowUserToResizeRows = false;
             this.AirportGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.AirportGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.AirportGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.AirportGridView.Location = new System.Drawing.Point(0, 199);
-            this.AirportGridView.Name = "FlightGridView";
+            this.AirportGridView.Location = new System.Drawing.Point(0, 306);
+            this.AirportGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.AirportGridView.MultiSelect = false;
+            this.AirportGridView.Name = "AirportGridView";
             this.AirportGridView.ReadOnly = true;
-            this.AirportGridView.Size = new System.Drawing.Size(537, 150);
+            this.AirportGridView.Size = new System.Drawing.Size(590, 231);
             this.AirportGridView.TabIndex = 1;
             // 
             // AirportNameTextBox
             // 
-            this.AirportNameTextBox.Location = new System.Drawing.Point(310, 34);
+            this.AirportNameTextBox.Location = new System.Drawing.Point(67, 28);
+            this.AirportNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AirportNameTextBox.Name = "AirportNameTextBox";
-            this.AirportNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.AirportNameTextBox.Size = new System.Drawing.Size(132, 27);
             this.AirportNameTextBox.TabIndex = 2;
             // 
             // AirportCountryTextBox
             // 
-            this.AirportCountryTextBox.Location = new System.Drawing.Point(310, 69);
+            this.AirportCountryTextBox.Location = new System.Drawing.Point(67, 77);
+            this.AirportCountryTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AirportCountryTextBox.Name = "AirportCountryTextBox";
-            this.AirportCountryTextBox.Size = new System.Drawing.Size(100, 20);
+            this.AirportCountryTextBox.Size = new System.Drawing.Size(132, 27);
             this.AirportCountryTextBox.TabIndex = 3;
             // 
             // AirportCityTextBox
             // 
-            this.AirportCityTextBox.Location = new System.Drawing.Point(310, 110);
+            this.AirportCityTextBox.Location = new System.Drawing.Point(67, 128);
+            this.AirportCityTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AirportCityTextBox.Name = "AirportCityTextBox";
-            this.AirportCityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.AirportCityTextBox.Size = new System.Drawing.Size(132, 27);
             this.AirportCityTextBox.TabIndex = 4;
             // 
             // AirportNameLabel
             // 
             this.AirportNameLabel.AutoSize = true;
-            this.AirportNameLabel.Location = new System.Drawing.Point(439, 37);
+            this.AirportNameLabel.Location = new System.Drawing.Point(231, 35);
+            this.AirportNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AirportNameLabel.Name = "AirportNameLabel";
-            this.AirportNameLabel.Size = new System.Drawing.Size(65, 13);
+            this.AirportNameLabel.Size = new System.Drawing.Size(38, 20);
             this.AirportNameLabel.TabIndex = 5;
-            this.AirportNameLabel.Text = "AirportName";
+            this.AirportNameLabel.Text = "فرودگاه";
             // 
             // AirportCountryLabel
             // 
             this.AirportCountryLabel.AutoSize = true;
-            this.AirportCountryLabel.Location = new System.Drawing.Point(439, 76);
+            this.AirportCountryLabel.Location = new System.Drawing.Point(207, 80);
+            this.AirportCountryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AirportCountryLabel.Name = "AirportCountryLabel";
-            this.AirportCountryLabel.Size = new System.Drawing.Size(73, 13);
+            this.AirportCountryLabel.Size = new System.Drawing.Size(62, 20);
             this.AirportCountryLabel.TabIndex = 6;
-            this.AirportCountryLabel.Text = "AirportCountry";
+            this.AirportCountryLabel.Text = "کشور فرودگاه";
+            this.AirportCountryLabel.Click += new System.EventHandler(this.AirportCountryLabel_Click);
             // 
             // AirportCityLabel
             // 
             this.AirportCityLabel.AutoSize = true;
-            this.AirportCityLabel.Location = new System.Drawing.Point(439, 113);
+            this.AirportCityLabel.Location = new System.Drawing.Point(211, 135);
+            this.AirportCityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AirportCityLabel.Name = "AirportCityLabel";
-            this.AirportCityLabel.Size = new System.Drawing.Size(54, 13);
+            this.AirportCityLabel.Size = new System.Drawing.Size(58, 20);
             this.AirportCityLabel.TabIndex = 7;
-            this.AirportCityLabel.Text = "AirportCity";
+            this.AirportCityLabel.Text = "شهر فرودگاه";
             // 
             // SearchAirportButton
             // 
-            this.SearchAirportButton.Location = new System.Drawing.Point(77, 148);
+            this.SearchAirportButton.Location = new System.Drawing.Point(58, 212);
+            this.SearchAirportButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchAirportButton.Name = "SearchAirportButton";
-            this.SearchAirportButton.Size = new System.Drawing.Size(75, 23);
+            this.SearchAirportButton.Size = new System.Drawing.Size(116, 68);
             this.SearchAirportButton.TabIndex = 8;
-            this.SearchAirportButton.Text = "Search";
+            this.SearchAirportButton.Text = "جستجو";
             this.SearchAirportButton.UseVisualStyleBackColor = true;
             this.SearchAirportButton.Click += new System.EventHandler(this.SearchAirportButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.AirportCountryTextBox);
+            this.groupBox1.Controls.Add(this.AirportNameTextBox);
+            this.groupBox1.Controls.Add(this.AirportCityLabel);
+            this.groupBox1.Controls.Add(this.AirportCityTextBox);
+            this.groupBox1.Controls.Add(this.AirportCountryLabel);
+            this.groupBox1.Controls.Add(this.AirportNameLabel);
+            this.groupBox1.Location = new System.Drawing.Point(240, 29);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox1.Size = new System.Drawing.Size(293, 191);
+            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "مشخصات جستجو";
+            // 
             // DisplayAirportsPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 349);
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.ClientSize = new System.Drawing.Size(590, 537);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SearchAirportButton);
-            this.Controls.Add(this.AirportCityLabel);
-            this.Controls.Add(this.AirportCountryLabel);
-            this.Controls.Add(this.AirportNameLabel);
-            this.Controls.Add(this.AirportCityTextBox);
-            this.Controls.Add(this.AirportCountryTextBox);
-            this.Controls.Add(this.AirportNameTextBox);
             this.Controls.Add(this.AirportGridView);
+            this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DisplayAirportsPage";
-            this.Text = "DisplayAirportsPage";
             this.Load += new System.EventHandler(this.DisplayAirportsPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AirportGridView)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -140,5 +171,6 @@
         private System.Windows.Forms.Label AirportCountryLabel;
         private System.Windows.Forms.Label AirportCityLabel;
         private System.Windows.Forms.Button SearchAirportButton;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FlightReservationSystem
 {
-    public partial class MainPage : MainPage_Base
+    public partial class MainPage_Salesman : MainPage_Base
     {
-        public MainPage(ReservationSystem reservationSystem)
+        public MainPage_Salesman(ReservationSystem reservationSystem)
             : base(reservationSystem)
         {
             InitializeComponent();
@@ -23,14 +23,48 @@ namespace FlightReservationSystem
 
         }
 
-        private void ReserveButton_Click(object sender, EventArgs e)
+
+
+
+        private void UpdateTablesButton_Click(object sender, EventArgs e)
         {
-            new AddReservationPage(reservationSystem).Show();
+            reservationSystem.UpdateTables();
         }
 
-        private void CancelReservationButton_Click(object sender, EventArgs e)
+        private void ReserveButton_Click_1(object sender, EventArgs e)
         {
-            new CancelReservationPage(reservationSystem).Show();
+            new AddReservationPage(reservationSystem).ShowDialog();
         }
+
+        private void CancelReservationButton_Click_1(object sender, EventArgs e)
+        {
+            new CancelReservationPage(reservationSystem).ShowDialog();
+        }
+
+        private void DisplayFlightsButton_Click(object sender, EventArgs e)
+        {
+            new DisplayFlightsPage(reservationSystem).ShowDialog();
+
+        }
+
+        private void DisplayReservationsButton_Click(object sender, EventArgs e)
+        {
+            new DisplayReservationsPage(reservationSystem).ShowDialog();
+
+        }
+
+        private void DisplayAirplanesButton_Click(object sender, EventArgs e)
+        {
+            new DisplayAirplanesPage(reservationSystem).ShowDialog();
+
+        }
+
+        private void DisplayAirportsButton_Click(object sender, EventArgs e)
+        {
+            new DisplayAirportsPage(reservationSystem).ShowDialog();
+
+        }
+
+
     }
 }

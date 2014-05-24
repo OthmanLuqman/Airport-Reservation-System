@@ -92,5 +92,20 @@ namespace FlightReservationSystem
             reservationSystem.UpdateTables();
         }
 
+        private void AddCompanyButton_Click(object sender, EventArgs e)
+        {
+            new AddCompanyPage(reservationSystem).ShowDialog();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

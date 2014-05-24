@@ -28,6 +28,8 @@ namespace FlightReservationSystem
             Rank rank = Utilities.StringToRank(PersianRankToEnglish(RankComboBox.Text));
 
             reservationSystem.AddStaff(username, password, fName, lName, rank);
+            this.Close();
+
         }
 
         private String PersianRankToEnglish(string rankStr)

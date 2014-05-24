@@ -29,61 +29,19 @@ namespace FlightReservationSystem
         {
             DataTable dt = reservationSystem.GetCompaniesTable();
 
-            //InitialOriginalTable(dt);
+            InitialOriginalTable(dt);
 
-            //queriedTable = originalTable.Copy();
+            queriedTable = originalTable.Copy();
             
-            CompanyGridView.DataSource = dt;
+            CompanyGridView.DataSource = queriedTable;
             CompanyGridView.Columns["ID"].Visible = false;
+            CompanyGridView.Columns["Name"].HeaderText = "نام شرکت";
         }
 
         private void InitialOriginalTable(DataTable dt)
         {
 
-            originalTable = new DataTable();
-            originalTable.Columns.Add("OriginCountry");
-            originalTable.Columns.Add("OriginCity");
-            originalTable.Columns.Add("OriginAirport");
-            originalTable.Columns.Add("DestinationCountry");
-            originalTable.Columns.Add("DestinationCity");
-            originalTable.Columns.Add("DestinationAirport");
-            originalTable.Columns.Add("DepartureDate");
-            originalTable.Columns.Add("ArrivalDate");
-            originalTable.Columns.Add("Plane");
-            originalTable.Columns.Add("Cost");
-
-            foreach (DataRow row in dt.Rows)
-            {
-
-                Guid originAirportID = Guid.Parse(row["originAirportID"].ToString());
-                Airport originAirport = reservationSystem.GetAirportByID(originAirportID);
-                String originCountry = originAirport.location.country;
-                String originCity = originAirport.location.city;
-                String originAirportName = originAirport.name;
-
-                Guid destinationAirportID = Guid.Parse(row["destinationAirportID"].ToString());
-                Airport destinationAirport = reservationSystem.GetAirportByID(destinationAirportID);
-                String destinationCountry = destinationAirport.location.country;
-                String destinationCity = destinationAirport.location.city;
-                String destinationAirportName = destinationAirport.name;
-
-                String departureDate = row["departureDate"].ToString();
-                String arrivalDate = row["arrivalDate"].ToString();
-
-                Guid planeID = Guid.Parse(row["planeID"].ToString());
-                String planeName = reservationSystem.GetPlaneByID(planeID).name;
-
-                originalTable.Rows.Add(originCountry
-                    , originCity
-                    , originAirportName
-                    , destinationCountry
-                    , destinationCity
-                    , destinationAirportName
-                    , departureDate
-                    , arrivalDate
-                    , planeName);
-
-            }
+            originalTable = dt.Copy();
 
         }
 

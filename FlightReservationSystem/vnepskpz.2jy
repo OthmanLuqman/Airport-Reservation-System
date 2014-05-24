@@ -200,7 +200,7 @@ namespace FlightReservationSystem
 
             cmd.CommandType = CommandType.StoredProcedure;
 
-            return Guid.Parse(SqlSelect(cmd).Rows[0]["ID"].ToString());
+            return Nullable<Guid>.Parse(SqlSelect(cmd).Rows[0]["ID"].ToString());
         }
 
         static public Nullable<Guid> InsertReservationAndReturnID(Guid flightID,Guid passerngerID, Guid staffID, uint seatNumber)

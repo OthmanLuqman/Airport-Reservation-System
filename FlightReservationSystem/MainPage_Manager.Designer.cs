@@ -70,6 +70,7 @@
             this.AddCompanyButton.TabIndex = 1;
             this.AddCompanyButton.Text = "اضافه کردن شرکت";
             this.AddCompanyButton.UseVisualStyleBackColor = true;
+            this.AddCompanyButton.Click += new System.EventHandler(this.AddCompanyButton_Click);
             // 
             // AddAirportButton
             // 
@@ -117,6 +118,7 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "رزرو";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // groupBox2
             // 
@@ -172,6 +174,7 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "گزارشات و ویرایش";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // DisplayAirplanesButton
             // 

@@ -50,10 +50,10 @@ namespace FlightReservationSystem
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.ArrivalTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.DepartureTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.DepartureDatePicker = new System.Windows.Forms.DateTimePicker();
             this.ArrivalDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.DepartureDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.DepartureTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.ArrivalTimePicker = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.FlightGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -62,11 +62,14 @@ namespace FlightReservationSystem
             // 
             // FlightGridView
             // 
+            this.FlightGridView.AllowUserToAddRows = false;
+            this.FlightGridView.AllowUserToDeleteRows = false;
             this.FlightGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.FlightGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.FlightGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.FlightGridView.Location = new System.Drawing.Point(0, 284);
             this.FlightGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FlightGridView.MultiSelect = false;
             this.FlightGridView.Name = "FlightGridView";
             this.FlightGridView.Size = new System.Drawing.Size(1176, 231);
             this.FlightGridView.TabIndex = 0;
@@ -280,25 +283,15 @@ namespace FlightReservationSystem
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "زمان بندی";
             // 
-            // ArrivalTimePicker
+            // ArrivalDatePicker
             // 
-            this.ArrivalTimePicker.CustomFormat = "HH:mm:ss";
-            this.ArrivalTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ArrivalTimePicker.Location = new System.Drawing.Point(53, 32);
-            this.ArrivalTimePicker.Name = "ArrivalTimePicker";
-            this.ArrivalTimePicker.Size = new System.Drawing.Size(125, 27);
-            this.ArrivalTimePicker.TabIndex = 26;
-            this.ArrivalTimePicker.Value = new System.DateTime(2014, 5, 23, 12, 0, 0, 0);
-            // 
-            // DepartureTimePicker
-            // 
-            this.DepartureTimePicker.CustomFormat = "HH:mm:ss";
-            this.DepartureTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DepartureTimePicker.Location = new System.Drawing.Point(282, 38);
-            this.DepartureTimePicker.Name = "DepartureTimePicker";
-            this.DepartureTimePicker.Size = new System.Drawing.Size(125, 27);
-            this.DepartureTimePicker.TabIndex = 27;
-            this.DepartureTimePicker.Value = new System.DateTime(2014, 5, 23, 12, 0, 0, 0);
+            this.ArrivalDatePicker.CustomFormat = "yyyy/MM/dd";
+            this.ArrivalDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ArrivalDatePicker.Location = new System.Drawing.Point(53, 74);
+            this.ArrivalDatePicker.Name = "ArrivalDatePicker";
+            this.ArrivalDatePicker.Size = new System.Drawing.Size(125, 27);
+            this.ArrivalDatePicker.TabIndex = 29;
+            this.ArrivalDatePicker.Value = new System.DateTime(2014, 1, 1, 22, 50, 0, 0);
             // 
             // DepartureDatePicker
             // 
@@ -311,15 +304,25 @@ namespace FlightReservationSystem
             this.DepartureDatePicker.TabIndex = 28;
             this.DepartureDatePicker.Value = new System.DateTime(2014, 1, 1, 22, 49, 0, 0);
             // 
-            // ArrivalDatePicker
+            // DepartureTimePicker
             // 
-            this.ArrivalDatePicker.CustomFormat = "yyyy/MM/dd";
-            this.ArrivalDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ArrivalDatePicker.Location = new System.Drawing.Point(53, 74);
-            this.ArrivalDatePicker.Name = "ArrivalDatePicker";
-            this.ArrivalDatePicker.Size = new System.Drawing.Size(125, 27);
-            this.ArrivalDatePicker.TabIndex = 29;
-            this.ArrivalDatePicker.Value = new System.DateTime(2014, 1, 1, 22, 50, 0, 0);
+            this.DepartureTimePicker.CustomFormat = "HH:mm:ss";
+            this.DepartureTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DepartureTimePicker.Location = new System.Drawing.Point(282, 38);
+            this.DepartureTimePicker.Name = "DepartureTimePicker";
+            this.DepartureTimePicker.Size = new System.Drawing.Size(125, 27);
+            this.DepartureTimePicker.TabIndex = 27;
+            this.DepartureTimePicker.Value = new System.DateTime(2014, 5, 23, 12, 0, 0, 0);
+            // 
+            // ArrivalTimePicker
+            // 
+            this.ArrivalTimePicker.CustomFormat = "HH:mm:ss";
+            this.ArrivalTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ArrivalTimePicker.Location = new System.Drawing.Point(53, 32);
+            this.ArrivalTimePicker.Name = "ArrivalTimePicker";
+            this.ArrivalTimePicker.Size = new System.Drawing.Size(125, 27);
+            this.ArrivalTimePicker.TabIndex = 26;
+            this.ArrivalTimePicker.Value = new System.DateTime(2014, 5, 23, 12, 0, 0, 0);
             // 
             // DisplayFlightsPage
             // 
@@ -336,7 +339,6 @@ namespace FlightReservationSystem
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DisplayFlightsPage";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Text = "DisplayFlights";
             this.Load += new System.EventHandler(this.DisplayFlights_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FlightGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);

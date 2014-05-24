@@ -43,6 +43,9 @@ namespace FlightReservationSystem
 
             queriedTable = originalTable.Copy();
             StaffGridView.DataSource = queriedTable;
+            StaffGridView.Columns["Rank"].HeaderText = "سمت";
+            StaffGridView.Columns["FirstName"].HeaderText = "نام ";
+            StaffGridView.Columns["LastName"].HeaderText = "نام خانوادگی";
         }
 
         void InitialOriginalTable(DataTable dt)
@@ -68,7 +71,7 @@ namespace FlightReservationSystem
         {
             if (persionRank == "")
                 return "";
-            Dictionary<String,String> convertor = new Dictionary<String,String>();
+            Dictionary<String, String> convertor = new Dictionary<String, String>();
             convertor.Add("مدیر", "Manager");
             convertor.Add("فروشنده", "Salesman");
             return convertor[persionRank];
@@ -77,12 +80,12 @@ namespace FlightReservationSystem
         {
             foreach (DataRow row in originalTable.Rows)
             {
-                if (IsRowMatch(row, queryInfo))
+                if (IsRowMatched(row, queryInfo))
                     queriedTable.Rows.Add(row.ItemArray);
             }
         }
 
-        private bool IsRowMatch(DataRow row, QueryInfo queryInfo)
+        private bool IsRowMatched(DataRow row, QueryInfo queryInfo)
         {
             if (queryInfo.firstName != ""
                 && !queryInfo.firstName.Equals(row["FirstName"].ToString().ToLower()))

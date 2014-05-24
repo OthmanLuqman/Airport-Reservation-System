@@ -33,7 +33,6 @@ namespace FlightReservationSystem
         {
             if (allPassengers == null)
                 allPassengers = new AllPassengers();
-            allPassengers.Update();
             return allPassengers;
         }
 
@@ -41,7 +40,6 @@ namespace FlightReservationSystem
         {
             if (allCompanies == null)
                 allCompanies = new AllCompanies();
-            allCompanies.Update();
             return allCompanies;
         }
 
@@ -53,7 +51,7 @@ namespace FlightReservationSystem
 
         }
 
-        public static AllReservations GetReserations()
+        public static AllReservations GetReservations()
         {
             if (allReservations == null)
                 allReservations = new AllReservations();

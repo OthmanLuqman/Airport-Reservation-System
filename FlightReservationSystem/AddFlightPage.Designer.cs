@@ -44,174 +44,206 @@
             this.SearchPlaneIDButton = new System.Windows.Forms.Button();
             this.SearchOriginAirportIDButton = new System.Windows.Forms.Button();
             this.SearchDestinationAirportIDButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(96, 213);
+            this.AddButton.Location = new System.Drawing.Point(43, 317);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(75, 23);
+            this.AddButton.Size = new System.Drawing.Size(123, 65);
             this.AddButton.TabIndex = 0;
-            this.AddButton.Text = "Add";
+            this.AddButton.Text = "اضافه کردن";
             this.AddButton.UseVisualStyleBackColor = true;
             this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // PlaneIDTextBox
             // 
-            this.PlaneIDTextBox.Location = new System.Drawing.Point(96, 38);
+            this.PlaneIDTextBox.Location = new System.Drawing.Point(124, 30);
+            this.PlaneIDTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PlaneIDTextBox.Name = "PlaneIDTextBox";
-            this.PlaneIDTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PlaneIDTextBox.Size = new System.Drawing.Size(217, 27);
             this.PlaneIDTextBox.TabIndex = 1;
             // 
             // OriginAirportTextBox
             // 
-            this.OriginAirportTextBox.Location = new System.Drawing.Point(96, 64);
+            this.OriginAirportTextBox.Location = new System.Drawing.Point(124, 72);
+            this.OriginAirportTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.OriginAirportTextBox.Name = "OriginAirportTextBox";
-            this.OriginAirportTextBox.Size = new System.Drawing.Size(100, 20);
+            this.OriginAirportTextBox.Size = new System.Drawing.Size(217, 27);
             this.OriginAirportTextBox.TabIndex = 2;
             // 
             // DestinationAirportTextBox
             // 
-            this.DestinationAirportTextBox.Location = new System.Drawing.Point(96, 90);
+            this.DestinationAirportTextBox.Location = new System.Drawing.Point(124, 112);
+            this.DestinationAirportTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DestinationAirportTextBox.Name = "DestinationAirportTextBox";
-            this.DestinationAirportTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DestinationAirportTextBox.Size = new System.Drawing.Size(217, 27);
             this.DestinationAirportTextBox.TabIndex = 3;
             // 
             // DepartureTimePicker
             // 
-            this.DepartureTimePicker.CustomFormat = "\"yyyy/mm/dd hh:mm:ss\"";
+            this.DepartureTimePicker.CustomFormat = "\"yyyy/MM/dd hh:mm:ss\"";
             this.DepartureTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DepartureTimePicker.Location = new System.Drawing.Point(50, 116);
+            this.DepartureTimePicker.Location = new System.Drawing.Point(76, 158);
+            this.DepartureTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.DepartureTimePicker.Name = "DepartureTimePicker";
-            this.DepartureTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.DepartureTimePicker.Size = new System.Drawing.Size(265, 27);
             this.DepartureTimePicker.TabIndex = 6;
             this.DepartureTimePicker.ValueChanged += new System.EventHandler(this.DepartureTimePicker_ValueChanged);
             // 
             // ArrivalTimePicker
             // 
-            this.ArrivalTimePicker.CustomFormat = "\"yyyy/mm/dd hh:mm:ss\"";
+            this.ArrivalTimePicker.CustomFormat = "\"yyyy/MM/dd hh:mm:ss\"";
             this.ArrivalTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.ArrivalTimePicker.Location = new System.Drawing.Point(50, 142);
+            this.ArrivalTimePicker.Location = new System.Drawing.Point(76, 206);
+            this.ArrivalTimePicker.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ArrivalTimePicker.Name = "ArrivalTimePicker";
-            this.ArrivalTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.ArrivalTimePicker.Size = new System.Drawing.Size(265, 27);
             this.ArrivalTimePicker.TabIndex = 7;
             // 
             // PlaneLabel
             // 
             this.PlaneLabel.AutoSize = true;
-            this.PlaneLabel.Location = new System.Drawing.Point(202, 41);
+            this.PlaneLabel.Location = new System.Drawing.Point(370, 35);
+            this.PlaneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PlaneLabel.Name = "PlaneLabel";
-            this.PlaneLabel.Size = new System.Drawing.Size(34, 13);
+            this.PlaneLabel.Size = new System.Drawing.Size(37, 20);
             this.PlaneLabel.TabIndex = 8;
-            this.PlaneLabel.Text = "Plane";
+            this.PlaneLabel.Text = "هواپیما";
             // 
             // OriginLabel
             // 
             this.OriginLabel.AutoSize = true;
-            this.OriginLabel.Location = new System.Drawing.Point(202, 67);
+            this.OriginLabel.Location = new System.Drawing.Point(350, 77);
+            this.OriginLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.OriginLabel.Name = "OriginLabel";
-            this.OriginLabel.Size = new System.Drawing.Size(67, 13);
+            this.OriginLabel.Size = new System.Drawing.Size(57, 20);
             this.OriginLabel.TabIndex = 9;
-            this.OriginLabel.Text = "Origin Airport";
+            this.OriginLabel.Text = "فرودگاه مبدا";
             // 
             // DestinaionLabel
             // 
             this.DestinaionLabel.AutoSize = true;
-            this.DestinaionLabel.Location = new System.Drawing.Point(202, 93);
+            this.DestinaionLabel.Location = new System.Drawing.Point(350, 117);
+            this.DestinaionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DestinaionLabel.Name = "DestinaionLabel";
-            this.DestinaionLabel.Size = new System.Drawing.Size(93, 13);
+            this.DestinaionLabel.Size = new System.Drawing.Size(63, 20);
             this.DestinaionLabel.TabIndex = 10;
-            this.DestinaionLabel.Text = "Destination Airport";
+            this.DestinaionLabel.Text = "فرودگاه مقصد";
             // 
             // DepartureTimeLabel
             // 
             this.DepartureTimeLabel.AutoSize = true;
-            this.DepartureTimeLabel.Location = new System.Drawing.Point(256, 122);
+            this.DepartureTimeLabel.Location = new System.Drawing.Point(365, 165);
+            this.DepartureTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DepartureTimeLabel.Name = "DepartureTimeLabel";
-            this.DepartureTimeLabel.Size = new System.Drawing.Size(80, 13);
+            this.DepartureTimeLabel.Size = new System.Drawing.Size(48, 20);
             this.DepartureTimeLabel.TabIndex = 11;
-            this.DepartureTimeLabel.Text = "Departure Time";
+            this.DepartureTimeLabel.Text = "زمان پرواز";
             // 
             // ArrivalTimeLabel
             // 
             this.ArrivalTimeLabel.AutoSize = true;
-            this.ArrivalTimeLabel.Location = new System.Drawing.Point(256, 148);
+            this.ArrivalTimeLabel.Location = new System.Drawing.Point(366, 211);
+            this.ArrivalTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ArrivalTimeLabel.Name = "ArrivalTimeLabel";
-            this.ArrivalTimeLabel.Size = new System.Drawing.Size(62, 13);
+            this.ArrivalTimeLabel.Size = new System.Drawing.Size(47, 20);
             this.ArrivalTimeLabel.TabIndex = 12;
-            this.ArrivalTimeLabel.Text = "Arrival Time";
+            this.ArrivalTimeLabel.Text = "زمان فرود";
             // 
             // CostTextBox
             // 
-            this.CostTextBox.Location = new System.Drawing.Point(82, 168);
+            this.CostTextBox.Location = new System.Drawing.Point(236, 252);
+            this.CostTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CostTextBox.Size = new System.Drawing.Size(105, 27);
             this.CostTextBox.TabIndex = 13;
             // 
             // CostLabel
             // 
             this.CostLabel.AutoSize = true;
-            this.CostLabel.Location = new System.Drawing.Point(188, 171);
+            this.CostLabel.Location = new System.Drawing.Point(353, 252);
+            this.CostLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CostLabel.Name = "CostLabel";
-            this.CostLabel.Size = new System.Drawing.Size(28, 13);
+            this.CostLabel.Size = new System.Drawing.Size(60, 20);
             this.CostLabel.TabIndex = 14;
-            this.CostLabel.Text = "Cost";
+            this.CostLabel.Text = "قیمت (ریال)";
             // 
             // SearchPlaneIDButton
             // 
-            this.SearchPlaneIDButton.Location = new System.Drawing.Point(63, 35);
+            this.SearchPlaneIDButton.Location = new System.Drawing.Point(43, 31);
+            this.SearchPlaneIDButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchPlaneIDButton.Name = "SearchPlaneIDButton";
-            this.SearchPlaneIDButton.Size = new System.Drawing.Size(27, 23);
+            this.SearchPlaneIDButton.Size = new System.Drawing.Size(73, 25);
             this.SearchPlaneIDButton.TabIndex = 15;
-            this.SearchPlaneIDButton.Text = "ج";
+            this.SearchPlaneIDButton.Text = "جستجو";
             this.SearchPlaneIDButton.UseVisualStyleBackColor = true;
             this.SearchPlaneIDButton.Click += new System.EventHandler(this.SearchPlaneIDButton_Click);
             // 
             // SearchOriginAirportIDButton
             // 
-            this.SearchOriginAirportIDButton.Location = new System.Drawing.Point(63, 61);
+            this.SearchOriginAirportIDButton.Location = new System.Drawing.Point(43, 72);
+            this.SearchOriginAirportIDButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchOriginAirportIDButton.Name = "SearchOriginAirportIDButton";
-            this.SearchOriginAirportIDButton.Size = new System.Drawing.Size(27, 23);
+            this.SearchOriginAirportIDButton.Size = new System.Drawing.Size(73, 27);
             this.SearchOriginAirportIDButton.TabIndex = 16;
-            this.SearchOriginAirportIDButton.Text = "ج";
+            this.SearchOriginAirportIDButton.Text = "جستجو";
             this.SearchOriginAirportIDButton.UseVisualStyleBackColor = true;
             this.SearchOriginAirportIDButton.Click += new System.EventHandler(this.SearchOriginAirportIDButton_Click);
             // 
             // SearchDestinationAirportIDButton
             // 
-            this.SearchDestinationAirportIDButton.Location = new System.Drawing.Point(63, 88);
+            this.SearchDestinationAirportIDButton.Location = new System.Drawing.Point(43, 112);
+            this.SearchDestinationAirportIDButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SearchDestinationAirportIDButton.Name = "SearchDestinationAirportIDButton";
-            this.SearchDestinationAirportIDButton.Size = new System.Drawing.Size(27, 23);
+            this.SearchDestinationAirportIDButton.Size = new System.Drawing.Size(73, 27);
             this.SearchDestinationAirportIDButton.TabIndex = 17;
-            this.SearchDestinationAirportIDButton.Text = "ج";
+            this.SearchDestinationAirportIDButton.Text = "جستجو";
             this.SearchDestinationAirportIDButton.UseVisualStyleBackColor = true;
             this.SearchDestinationAirportIDButton.Click += new System.EventHandler(this.SearchDestinationAirportIDButton_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.SearchPlaneIDButton);
+            this.groupBox1.Controls.Add(this.SearchDestinationAirportIDButton);
+            this.groupBox1.Controls.Add(this.PlaneIDTextBox);
+            this.groupBox1.Controls.Add(this.SearchOriginAirportIDButton);
+            this.groupBox1.Controls.Add(this.OriginAirportTextBox);
+            this.groupBox1.Controls.Add(this.DestinationAirportTextBox);
+            this.groupBox1.Controls.Add(this.CostLabel);
+            this.groupBox1.Controls.Add(this.DepartureTimePicker);
+            this.groupBox1.Controls.Add(this.CostTextBox);
+            this.groupBox1.Controls.Add(this.ArrivalTimePicker);
+            this.groupBox1.Controls.Add(this.ArrivalTimeLabel);
+            this.groupBox1.Controls.Add(this.PlaneLabel);
+            this.groupBox1.Controls.Add(this.DepartureTimeLabel);
+            this.groupBox1.Controls.Add(this.OriginLabel);
+            this.groupBox1.Controls.Add(this.DestinaionLabel);
+            this.groupBox1.Location = new System.Drawing.Point(260, 40);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox1.Size = new System.Drawing.Size(431, 342);
+            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "مشخصات";
+            // 
             // AddFlightPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 261);
-            this.Controls.Add(this.SearchDestinationAirportIDButton);
-            this.Controls.Add(this.SearchOriginAirportIDButton);
-            this.Controls.Add(this.SearchPlaneIDButton);
-            this.Controls.Add(this.CostLabel);
-            this.Controls.Add(this.CostTextBox);
-            this.Controls.Add(this.ArrivalTimeLabel);
-            this.Controls.Add(this.DepartureTimeLabel);
-            this.Controls.Add(this.DestinaionLabel);
-            this.Controls.Add(this.OriginLabel);
-            this.Controls.Add(this.PlaneLabel);
-            this.Controls.Add(this.ArrivalTimePicker);
-            this.Controls.Add(this.DepartureTimePicker);
-            this.Controls.Add(this.DestinationAirportTextBox);
-            this.Controls.Add(this.OriginAirportTextBox);
-            this.Controls.Add(this.PlaneIDTextBox);
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.ClientSize = new System.Drawing.Size(743, 462);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AddButton);
+            this.Font = new System.Drawing.Font("B Nazanin", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AddFlightPage";
-            this.Text = "AddFlightPage";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -233,5 +265,6 @@
         private System.Windows.Forms.Button SearchPlaneIDButton;
         private System.Windows.Forms.Button SearchOriginAirportIDButton;
         private System.Windows.Forms.Button SearchDestinationAirportIDButton;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

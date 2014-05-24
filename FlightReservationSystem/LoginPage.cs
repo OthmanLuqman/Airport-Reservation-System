@@ -35,7 +35,7 @@ namespace FlightReservationSystem
             {
 
                 this.Hide();
-                var mainPage = new MainPage(reservationSystem);
+                var mainPage = new MainPage_Salesman(reservationSystem);
                 mainPage.Closed += (sender2, args) => this.Close();
                 mainPage.Show();
             }

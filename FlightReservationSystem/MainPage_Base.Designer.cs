@@ -36,7 +36,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "MainPage_Base";
-            this.Text = "MainPage_Base";
             this.Load += new System.EventHandler(this.MainPage_Base_Load);
             this.ResumeLayout(false);
 

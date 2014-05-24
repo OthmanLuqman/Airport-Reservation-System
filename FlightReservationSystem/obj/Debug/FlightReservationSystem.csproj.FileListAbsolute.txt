@@ -14,7 +14,6 @@ E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\De
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.MainPage_Manager.resources
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.MainPage_Base.resources
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.CancelReservationPage.resources
-E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.MainPage.resources
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.DisplayFlightsPage.resources
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.DisplayCompaniesPage.resources
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.DisplayAirportsPage.resources
@@ -27,4 +26,5 @@ E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\De
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\bin\Debug\fa\FlightReservationSystem.resources.dll
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.LoginPage.fa.resources
 E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\fa\FlightReservationSystem.resources.dll
-E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.DisplaySeatsPage.resources
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.SelectSeatsPage.resources
+E:\Projects\IUST\DataBase\FlightReservationSystem\FlightReservationSystem\obj\Debug\FlightReservationSystem.MainPage_Salesman.resources

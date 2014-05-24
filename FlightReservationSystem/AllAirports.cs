@@ -11,6 +11,12 @@ namespace FlightReservationSystem
     {
         public AllAirports()
         {
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            airports.Clear();
             airpotTable = DBFacade.GetAirports();
             for (int i = 0; i < airpotTable.Rows.Count; i++)
             {
@@ -20,9 +26,9 @@ namespace FlightReservationSystem
 
                 String country = airpotTable.Rows[i]["country"].ToString();
                 String city = airpotTable.Rows[i]["city"].ToString();
-                Location location= new Location(country,city);
+                Location location = new Location(country, city);
 
-                airports.Add(new Airport(ID,name,location));
+                airports.Add(new Airport(ID, name, location));
             }
         }
 
@@ -48,7 +54,7 @@ namespace FlightReservationSystem
             return airpotTable;
         }
 
-        DataTable airpotTable;
+        DataTable airpotTable = new DataTable();
         List<Airport> airports = new List<Airport>();
      }
 

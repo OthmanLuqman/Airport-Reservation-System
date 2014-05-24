@@ -12,6 +12,12 @@ namespace FlightReservationSystem
 
         public AllStaffs()
         {
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            staffTable.Clear();
             staffTable = DBFacade.GetStaffs();
             for (int i = 0; i < staffTable.Rows.Count; i++)
             {
@@ -20,7 +26,7 @@ namespace FlightReservationSystem
                 String lName = staffTable.Rows[i]["LastName"].ToString();
                 Rank rank = Utilities.StringToRank(staffTable.Rows[i]["Rank"].ToString());
 
-                staffs.Add(Utilities.CreateStaff(rank, fName, lName,ID));
+                staffs.Add(Utilities.CreateStaff(rank, fName, lName, ID));
             }
         }
 
@@ -46,7 +52,7 @@ namespace FlightReservationSystem
             return staffTable;
         }
 
-        DataTable staffTable;
+        DataTable staffTable = new DataTable();
         List<Staff> staffs = new List<Staff>();
     }
 }

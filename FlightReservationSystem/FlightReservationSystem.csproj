@@ -76,11 +76,11 @@
     </Compile>
     <Compile Include="Airplane.cs" />
     <Compile Include="Airport.cs" />
-    <Compile Include="DisplaySeatsPage.cs">
+    <Compile Include="SelectSeatsPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DisplaySeatsPage.Designer.cs">
-      <DependentUpon>DisplaySeatsPage.cs</DependentUpon>
+    <Compile Include="SelectSeatsPage.Designer.cs">
+      <DependentUpon>SelectSeatsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="SelectAirplanePage.cs">
       <SubType>Form</SubType>
@@ -236,8 +236,8 @@
     <EmbeddedResource Include="DisplayReservationsPage.resx">
       <DependentUpon>DisplayReservationsPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DisplaySeatsPage.resx">
-      <DependentUpon>DisplaySeatsPage.cs</DependentUpon>
+    <EmbeddedResource Include="SelectSeatsPage.resx">
+      <DependentUpon>SelectSeatsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DisplayStaffsPage.resx">
       <DependentUpon>DisplayStaffsPage.cs</DependentUpon>

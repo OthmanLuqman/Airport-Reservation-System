@@ -36,6 +36,7 @@ namespace FlightReservationSystem
             uint seatNumber = uint.Parse(SeatNumberTestBox.Text);
 
             reservationSystem.AddReservation(flightID, fName, lName, age, gender, nationalCode, seatNumber);
+            this.Close();
         }
 
         private String PersianSexToEnglishSex(String sexStr)
@@ -67,32 +68,28 @@ namespace FlightReservationSystem
         public void SetFlightID(Guid ID)
         {
             this.FlightIDTextBox.Text = ID.ToString();
-           MessageBox.Show("Guid is " + ID);
+           //MessageBox.Show("Guid is " + ID);
         }
 
         private void SearchSeatsButton_Click(object sender, EventArgs e)
         {
-            List<bool> seats = new List<bool>();
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(true);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
-            seats.Add(false);
+            if(FlightIDTextBox.Text=="")
+                return;
 
-            new DisplaySeatsPage(seats,seats.Count, 2).ShowDialog();
+            Guid flightID = Guid.Parse(FlightIDTextBox.Text);
+
+            List<bool> seatsFlag = reservationSystem.GetSeatsFlag(flightID);
+   
+
+            var s = new SelectSeatsPage(seatsFlag, seatsFlag.Count, 10);
+            s.SetSeatSelectionCallBack(SetSeatNumber);
+            
+            s.ShowDialog();
+        }
+
+        public void SetSeatNumber(int seatNo)
+        {
+            SeatNumberTestBox.Text = seatNo.ToString();
         }
     }
 }

@@ -35,13 +35,14 @@ namespace FlightReservationSystem
             uint cost = uint.Parse(CostTextBox.Text);
 
             reservationSystem.AddFlight(planeID, originAirportID, destinationAirportID, departureDate, arrivalDate, cost);
+            this.Close();
         }
 
         private void SearchPlaneIDButton_Click(object sender, EventArgs e)
         {
             SelectAirplanePage a = new SelectAirplanePage(reservationSystem);
             a.SetIIDSelectionCallBack(new IDSelectionCallBack(SetPlaneID));
-            a.Show();
+            a.ShowDialog();
         }
 
         public void SetPlaneID(Guid ID)
@@ -55,7 +56,7 @@ namespace FlightReservationSystem
         {
             SelectAirportPage a = new SelectAirportPage(reservationSystem);
             a.SetIIDSelectionCallBack(new IDSelectionCallBack(SetOriginAirportID));
-            a.Show();
+            a.ShowDialog();
         }
 
         public void SetOriginAirportID(Guid ID)
@@ -68,7 +69,7 @@ namespace FlightReservationSystem
         {
             SelectAirportPage a = new SelectAirportPage(reservationSystem);
             a.SetIIDSelectionCallBack(new IDSelectionCallBack(SetDestinationAirportID));
-            a.Show();
+            a.ShowDialog();
         }
 
         public void SetDestinationAirportID(Guid ID)

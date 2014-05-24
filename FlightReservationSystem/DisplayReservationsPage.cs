@@ -12,7 +12,18 @@ namespace FlightReservationSystem
 {
     public partial class DisplayReservationsPage : Form
     {
+        struct QueryInfo
+        {
+            public QueryInfo(String reservationID, String flightID)
+            {
+                this.reservationID = reservationID;
+                this.flightID = flightID;
+            }
 
+            public String reservationID;
+            public String flightID;
+
+        };
         ReservationSystem reservationSystem;
         public DisplayReservationsPage()
         {
@@ -32,7 +43,7 @@ namespace FlightReservationSystem
             DataTable dt = reservationSystem.GetReservationsTable();
 
             InitialOriginTable(dt);
-            
+
             queriedTable = originalTable.Copy();
 
             ReservationGridView.DataSource = queriedTable;
@@ -40,7 +51,18 @@ namespace FlightReservationSystem
             ReservationGridView.Columns["FlightID"].Visible = false;
             ReservationGridView.Columns["PassengerID"].Visible = false;
             ReservationGridView.Columns["StaffID"].Visible = false;
-       
+
+
+            ReservationGridView.Columns["PassengerName"].HeaderText = "نام مسافر";
+            ReservationGridView.Columns["FlightInfo"].HeaderText = "اطلاعات پرواز";
+            ReservationGridView.Columns["ReservationTime"].HeaderText = "تاریخ رزرو";
+            ReservationGridView.Columns["State"].HeaderText = "وضعیت";
+            ReservationGridView.Columns["CancelTime"].HeaderText = "تاریخ لغو";
+            ReservationGridView.Columns["PassengerName"].HeaderText = "نام مسافر";
+            ReservationGridView.Columns["StaffName"].HeaderText = "نام کامرمند";
+            ReservationGridView.Columns["SeatNumber"].HeaderText = "شماره صندلی";
+
+
         }
 
         private void InitialOriginTable(DataTable dt)
@@ -57,7 +79,7 @@ namespace FlightReservationSystem
             //originalTable.Columns["StaffName"].SetOrdinal(2);
 
 
-            foreach( DataRow row in originalTable.Rows)
+            foreach (DataRow row in originalTable.Rows)
             {
                 Guid passengerID = Guid.Parse(row["PassengerID"].ToString());
                 Passenger passenger = reservationSystem.GetPassengerByID(passengerID);
@@ -77,7 +99,52 @@ namespace FlightReservationSystem
 
         }
 
+
+        private void PrepareSearch()
+        {
+            queriedTable.Clear();
+            String reservationID = ReservationIDTextBox.Text;
+            String flightID = FlightIDTextBox.Text;
+
+            QueryInfo queryInfo = new QueryInfo(reservationID, flightID);
+
+
+            UpdateQueriedTable(queryInfo);
+        }
+
+        private void UpdateQueriedTable(QueryInfo queryInfo)
+        {
+            foreach (DataRow row in originalTable.Rows)
+            {
+                if (IsRowMatched(row, queryInfo))
+                    queriedTable.Rows.Add(row.ItemArray);
+            }
+        }
+
+
+        private bool IsRowMatched(DataRow row, QueryInfo queryInfo)
+        {
+            if (queryInfo.reservationID != ""
+                && !queryInfo.reservationID.Equals(row["ID"].ToString().ToLower()))
+                return false;
+
+            if (queryInfo.flightID != ""
+                && !queryInfo.flightID.Equals(row["FlightID"].ToString()))
+                return false;
+            return true;
+        }
+
         DataTable originalTable = null;
         DataTable queriedTable = null;
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            PrepareSearch();
+        }
+
+        private void DisplayReservationsPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

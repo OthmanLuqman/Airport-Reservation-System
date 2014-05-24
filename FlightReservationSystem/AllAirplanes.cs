@@ -11,6 +11,13 @@ namespace FlightReservationSystem
     {
         public AllAirplanes()
         {
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            planeTable.Clear();
+
             planeTable = DBFacade.GetAirplanes();
             for (int i = 0; i < planeTable.Rows.Count; i++)
             {
@@ -18,7 +25,7 @@ namespace FlightReservationSystem
                 uint capacity = uint.Parse(planeTable.Rows[i]["capacity"].ToString());
                 String name = planeTable.Rows[i]["name"].ToString();
 
-                planes.Add(new Airplane(ID,name,capacity));
+                planes.Add(new Airplane(ID, name, capacity));
             }
         }
 
@@ -44,7 +51,7 @@ namespace FlightReservationSystem
             return planeTable;
         }
 
-        DataTable planeTable;
+        DataTable planeTable = new DataTable();
         List<Airplane> planes = new List<Airplane>();
     }
 

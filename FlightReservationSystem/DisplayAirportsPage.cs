@@ -53,6 +53,10 @@ namespace FlightReservationSystem
             queriedTable = originalTable.Copy();
             AirportGridView.DataSource = queriedTable;
             AirportGridView.Columns["ID"].Visible = false;
+            AirportGridView.Columns["city"].HeaderText = "شهر";
+            AirportGridView.Columns["country"].HeaderText = "کشور";
+            AirportGridView.Columns["name"].HeaderText = "نام";
+
         }
 
         private void InitialOriginalTable(DataTable dt)
@@ -90,12 +94,12 @@ namespace FlightReservationSystem
         {
             foreach (DataRow row in originalTable.Rows)
             {
-                if (IsRowMatch(row, queryInfo))
+                if (IsRowMatched(row, queryInfo))
                     queriedTable.Rows.Add(row.ItemArray);
             }
         }
 
-        private bool IsRowMatch(DataRow row, QueryInfo queryInfo)
+        private bool IsRowMatched(DataRow row, QueryInfo queryInfo)
         {
             if (queryInfo.name != ""
                 && !queryInfo.name.Equals(row["name"]))
@@ -111,6 +115,11 @@ namespace FlightReservationSystem
 
         DataTable queriedTable;
         DataTable originalTable;
+
+        private void AirportCountryLabel_Click(object sender, EventArgs e)
+        {
+
+        }
         
     }
 }

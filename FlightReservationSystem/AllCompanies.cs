@@ -11,10 +11,10 @@ namespace FlightReservationSystem
     {
         public AllCompanies()
         {
-
+            UpdateTable();
         }
 
-        public void Update()
+        public void UpdateTable()
         {
             companies.Clear();
 
@@ -52,7 +52,7 @@ namespace FlightReservationSystem
 
 
 
-        DataTable companyTable;
+        DataTable companyTable = new DataTable();
 
         List<Company> companies = new List<Company>();
     }

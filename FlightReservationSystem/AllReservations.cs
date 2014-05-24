@@ -12,6 +12,12 @@ namespace FlightReservationSystem
 
         public AllReservations()
         {
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            reservationTable.Clear();
             reservationTable = DBFacade.GetReservations();
 
             for (int i = 0; i < reservationTable.Rows.Count; i++)
@@ -30,8 +36,8 @@ namespace FlightReservationSystem
                 DateTime reservationTime = DateTime.Parse(reservationTable.Rows[i]["ReservationTime"].ToString());
 
                 String cancelTimeStr = reservationTable.Rows[i]["cancelTime"].ToString();
-                Nullable<DateTime> cancelTime= null;
-                if(!cancelTimeStr.Equals(""))
+                Nullable<DateTime> cancelTime = null;
+                if (!cancelTimeStr.Equals(""))
                     cancelTime = DateTime.Parse(cancelTimeStr);
 
                 uint seatNumber = uint.Parse(reservationTable.Rows[i]["SeatNumber"].ToString());
@@ -42,7 +48,6 @@ namespace FlightReservationSystem
                 reservations.Add(new Reservation(ID, flight, passenger, staff, seatNumber, reservationTime, state, cancelTime));
             }
         }
-
         public void AddReservation(Reservation reservation)
         {
             reservations.Add(reservation);
@@ -72,7 +77,7 @@ namespace FlightReservationSystem
         }
 
 
-        DataTable reservationTable;
+        DataTable reservationTable = new DataTable();
         List<Reservation> reservations = new List<Reservation>();
     }
 

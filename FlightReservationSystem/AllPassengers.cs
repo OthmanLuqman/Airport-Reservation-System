@@ -11,10 +11,10 @@ namespace FlightReservationSystem
     {
         public AllPassengers()
         {
-
+            UpdateTable();
         }
 
-        public void Update()
+        public void UpdateTable()
         {
             passengers.Clear();
             passengerTable = DBFacade.GetPassengers();
@@ -53,7 +53,7 @@ namespace FlightReservationSystem
             return passengerTable;
         }
 
-        DataTable passengerTable = null;
+        DataTable passengerTable = new DataTable();
         List<Passenger> passengers = new List<Passenger>();
     }
 }

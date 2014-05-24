@@ -73,13 +73,32 @@ namespace FlightReservationSystem
             InitialOriginalTable(dt);
 
             queriedTable = originalTable.Copy();
-            FlightGridView.DataSource = queriedTable;
+            if( FlightGridView.DataSource==null)
+                FlightGridView.DataSource = queriedTable;
 
             FlightGridView.Columns["ID"].Visible = false;
             FlightGridView.Columns["State"].Visible =false;
 
             AddStateColoumn();
             //AddActualDatesColoumn();
+
+            FlightGridView.Columns["StateComboBox"].ReadOnly = false;
+            FlightGridView.Columns["StateComboBox"].ReadOnly = false;
+
+            FlightGridView.Columns["ActualArrivalDate"].ReadOnly = false;
+            FlightGridView.Columns["ActualDepartureDate"].ReadOnly = false;
+            
+        }
+
+        private void RefereshTables()
+        {
+            DataTable dt = reservationSystem.GetFlightsTable();
+
+            InitialOriginalTable(dt);
+
+            queriedTable = originalTable.Copy();
+            if (FlightGridView.DataSource == null)
+                FlightGridView.DataSource = queriedTable;
         }
 
         private void AddStateColoumn()
@@ -97,6 +116,19 @@ namespace FlightReservationSystem
 
 
             FlightGridView.Columns.Add(stateComboBox);
+            FlightGridView.Columns["OriginCountry"].HeaderText = "کشور مبدا";
+            FlightGridView.Columns["OriginCity"].HeaderText = "شهر مبدا";
+            FlightGridView.Columns["OriginAirport"].HeaderText = "فرودگاه مبدا";
+            FlightGridView.Columns["DestinationCountry"].HeaderText = "کشور مقصد";
+            FlightGridView.Columns["DestinationCity"].HeaderText = "شهر مقصد";
+            FlightGridView.Columns["DestinationAirport"].HeaderText = "مقصد";
+            FlightGridView.Columns["DepartureDate"].HeaderText = "زمان پرواز";
+            FlightGridView.Columns["ArrivalDate"].HeaderText = "زمان فرود";
+            FlightGridView.Columns["ActualDepartureDate"].HeaderText = "زمان پرواز واقعی";
+            FlightGridView.Columns["ActualArrivalDate"].HeaderText = "زمان فرود واقعی";
+            FlightGridView.Columns["Plane"].HeaderText = "هواپیما";
+            FlightGridView.Columns["Cost"].HeaderText = "هزینه";
+
             UpdateStateColumn();
         }
 
@@ -214,6 +246,7 @@ namespace FlightReservationSystem
         private void SearchButton_Click(object sender, EventArgs e)
         {
             PrepareSearch();
+
         }
         
         private void PrepareSearch()
@@ -248,7 +281,7 @@ namespace FlightReservationSystem
         {
             foreach(DataRow row in originalTable.Rows)
             {
-                if (IsRowMatch(row,queryInfo))
+                if (IsRowMatched(row,queryInfo))
                     queriedTable.Rows.Add(row.ItemArray);
             }
 
@@ -260,7 +293,7 @@ namespace FlightReservationSystem
             UpdateStateColumn();
         }
 
-        private bool IsRowMatch(DataRow row, QueryInfo queryInfo)
+        private bool IsRowMatched(DataRow row, QueryInfo queryInfo)
         {
             if(queryInfo.originCountry!="" 
                 && !queryInfo.originCountry.Equals(row["OriginCountry"]))
@@ -309,7 +342,8 @@ namespace FlightReservationSystem
 
             reservationSystem.UpdateFlight(flightID, state, actualArrivalDate, actualArrivalDate);
 
-            InitialTables();
+            reservationSystem.UpdateTables();
+            RefereshTables();
 
         }
 

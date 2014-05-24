@@ -266,7 +266,6 @@
             this.Name = "AddReservationPage";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.Text = "رزرو بلیط";
             this.Load += new System.EventHandler(this.ReservationPage_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

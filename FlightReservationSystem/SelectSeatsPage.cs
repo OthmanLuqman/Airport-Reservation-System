@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace FlightReservationSystem
 {
-
-    public partial class DisplaySeatsPage : Form
+    public delegate void SeatSelectionCallBack(int seatNo);
+    public partial class SelectSeatsPage : Form
     {
-        public DisplaySeatsPage(List<bool> seatsFlag,int seatCounts, int seatsPerRow)
+        public SelectSeatsPage(List<bool> seatsFlag,int seatCounts, int seatsPerRow)
         {
+            this.seatsFlag = seatsFlag;
             InitializeComponent();
             InitialSeatGridView(seatsFlag, seatCounts, seatsPerRow);
         }
@@ -25,7 +26,7 @@ namespace FlightReservationSystem
             int columns = seatCounts / seatsPerRow;
             for (int i = 0; i < columns; i++)
             {
-                DataGridViewButtonColumn c = new DataGridViewButtonColumn();
+                DataGridViewTextBoxColumn c = new DataGridViewTextBoxColumn();
                 c.HeaderText = i.ToString();
                 SeatsGridView.Columns.Add(c);
 
@@ -52,12 +53,34 @@ namespace FlightReservationSystem
                 }
             }
         }
+
+        public void SetSeatSelectionCallBack(SeatSelectionCallBack c)
+        {
+            seatSelectionCallBack = c;
+        }
+
+
+        private void OnCellDoubleClicked(Object sender, DataGridViewCellEventArgs e)
+        {
+            int seatIndex = int.Parse(SeatsGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString()) -1;
+
+            if (seatIndex >= seatsFlag.Count)
+                return;
+
+            if (seatsFlag[seatIndex] && seatSelectionCallBack != null )
+            {
+                seatSelectionCallBack(seatIndex + 1);
+                this.Close();
+            }
             
+        }
 
         private void DisplaySeatsPage_Load(object sender, EventArgs e)
         {
             
         }
+        private SeatSelectionCallBack seatSelectionCallBack = null;
+        List<bool> seatsFlag;
 
     }
 }

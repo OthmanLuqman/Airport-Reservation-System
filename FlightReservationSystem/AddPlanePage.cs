@@ -31,19 +31,21 @@ namespace FlightReservationSystem
             uint capacity = uint.Parse(CapacityTextBox.Text);
 
             reservationSystem.AddAirplane(name, companyID, capacity);
+            this.Close();
+
         }
 
         private void SearchCompanyIDButton_Click(object sender, EventArgs e)
         {
             SelectCopmanyPage c = new SelectCopmanyPage(reservationSystem);
             c.SetIIDSelectionCallBack(new IDSelectionCallBack(SetCompanyID));
-            c.Show();
+            c.ShowDialog();
         }
 
         public void SetCompanyID(Guid ID)
         {
             this.CopmanyIDTextBox.Text = ID.ToString();
-            MessageBox.Show("Guid is " + ID);
+            //MessageBox.Show("Guid is " + ID);
         }
 
     }

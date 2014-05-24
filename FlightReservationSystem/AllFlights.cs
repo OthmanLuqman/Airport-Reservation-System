@@ -12,12 +12,18 @@ namespace FlightReservationSystem
     {
         public AllFlights()
         {
+            UpdateTable();
+        }
+
+        public void UpdateTable()
+        {
+            flightTable.Clear();
             flightTable = DBFacade.GetFlights();
 
             AllAirplanes allPlanes = ServiceFactory.GetAirplanes();
             AllAirports allAirports = ServiceFactory.GetAirports();
 
-            for(int i = 0 ; i< flightTable.Rows.Count ; i++)
+            for (int i = 0; i < flightTable.Rows.Count; i++)
             {
                 Guid ID = Guid.Parse(flightTable.Rows[i]["ID"].ToString());
 
@@ -34,8 +40,8 @@ namespace FlightReservationSystem
                 DateTime departureDate = DateTime.Parse(flightTable.Rows[i]["departureDate"].ToString());
 
                 String actualArrivalDateStr = flightTable.Rows[i]["actualArrivalDate"].ToString();
-                Nullable<DateTime> actualArrivalDate= null;
-                if(!actualArrivalDateStr.Equals(""))
+                Nullable<DateTime> actualArrivalDate = null;
+                if (!actualArrivalDateStr.Equals(""))
                     actualArrivalDate = DateTime.Parse(actualArrivalDateStr);
 
 
@@ -77,7 +83,7 @@ namespace FlightReservationSystem
             return flightTable;
         }
 
-        DataTable flightTable = null;
+        DataTable flightTable = new DataTable();
 
         List<Flight> flights = new List<Flight>();
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Windows.Forms;
 
 namespace FlightReservationSystem
 {
@@ -51,6 +52,8 @@ namespace FlightReservationSystem
             Passenger p = CreateAndInsertPassenger(fName, lName, age, gender, nationalCode);
 
             CreateAndInsertReservation(f, p, currentStaff, seatNumber);
+
+            //MessageBox.Show("رزرو با موفقیت اضافه شد");
         }
 
         private Passenger CreateAndInsertPassenger(String fName, String lName, uint age, Gender gender, String nationalCode)
@@ -70,11 +73,16 @@ namespace FlightReservationSystem
             //TODO: I must set time to time inserted in DB
             Reservation reservation = new Reservation(flight, passenger, salesman, seatNumber,new DateTime(),ReservationState.Resereved, null);
 
-            ServiceFactory.GetReserations().AddReservation(reservation);
+            ServiceFactory.GetReservations().AddReservation(reservation);
 
-            Guid reservationID = DBFacade.InsertReservationAndReturnID(flight.GetID(), passenger.GetID(), currentStaff.GetID(), seatNumber);
-
-            reservation.SetID(reservationID);
+            Nullable<Guid> reservationID = DBFacade.InsertReservationAndReturnID(flight.GetID(), passenger.GetID(), currentStaff.GetID(), seatNumber);
+            if (reservationID != null)
+            {
+                reservation.SetID((Guid)reservationID);
+                MessageBox.Show("رزرو با موافقیت انجام شد");
+            }
+            else
+                MessageBox.Show("خطا در رزرو");
         }
 
         public void AddCompany(String name)
@@ -86,6 +94,7 @@ namespace FlightReservationSystem
 
             Guid companyID = DBFacade.InsertCompanyAndReturnID(name);
             company.SetID(companyID);
+            MessageBox.Show("شرکت با موفقیت اضافه شد");
         }
 
         public void AddStaff(String username, String password,String fName, String lName, Rank rank)
@@ -94,8 +103,17 @@ namespace FlightReservationSystem
 
             ServiceFactory.GetStaffs().AddStaff(staff);
 
-            Guid staffID = DBFacade.InsertNewUserAndReturnStaffID(username, password, fName, lName, rank.ToString());
-            staff.SetID(staffID);
+            Nullable<Guid> staffID = DBFacade.InsertNewUserAndReturnStaffID(username, password, fName, lName, rank.ToString());
+            if(staffID != null)
+            {
+                staff.SetID((Guid)staffID);
+                MessageBox.Show("کاربر با موفقیت اضافه شد");
+            }
+            else
+                MessageBox.Show("خطا در ثبت");
+               
+
+            
 
         }
 
@@ -107,6 +125,7 @@ namespace FlightReservationSystem
 
             Guid airportID = DBFacade.InsertAirportAndReturnID(name, location);
             airport.SetID(airportID);
+            MessageBox.Show("فرودگاه با موفقیت اضافه شد");
         }
 
         public void AddAirplane(String name, Guid companyID, uint capacity)
@@ -116,6 +135,7 @@ namespace FlightReservationSystem
 
             Guid airplaneID = DBFacade.InsertAirplaneAndReturnID(name, companyID, capacity);
             airplane.ID = airplaneID;
+            MessageBox.Show("هواپیما با موفقیت اضافه شد");
         }
 
         public void AddFlight( Guid planeID, Guid originAirportID, Guid destinationAirportID, DateTime departureDate, DateTime arrivalDate, uint cost)
@@ -132,6 +152,7 @@ namespace FlightReservationSystem
 
             Guid flightID = DBFacade.InsertFlightAndReturnID(planeID, originAirportID, destinationAirportID, departureDate, arrivalDate, cost);
             flight.SetID(flightID);
+            MessageBox.Show("پرواز با موفقیت اضافه شد");
         }
 
         public void UpdateFlight(Guid flightID, FlightState newState, Nullable<DateTime> newActualDepartureDate, Nullable<DateTime> newActualArrivalDate)
@@ -142,6 +163,7 @@ namespace FlightReservationSystem
             f.actualDepartureDate = newActualDepartureDate;
 
             DBFacade.UpdateFlight(flightID, newState.ToString(), newActualDepartureDate, newActualArrivalDate);
+            MessageBox.Show(" بروزرسانی با موفقیت اضافه شد");
         }
         public DataTable GetFlightsTable()
         {
@@ -165,7 +187,7 @@ namespace FlightReservationSystem
 
         public DataTable GetReservationsTable()
         {
-            return ServiceFactory.GetReserations().GetTable();
+            return ServiceFactory.GetReservations().GetTable();
         }
 
         public DataTable GetStaffsTable()
@@ -210,7 +232,40 @@ namespace FlightReservationSystem
 
         public void UpdateTables()
         {
+            ServiceFactory.GetCompanies().UpdateTable();
+            ServiceFactory.GetAirplanes().UpdateTable();
+            ServiceFactory.GetAirports().UpdateTable();
+            ServiceFactory.GetFlights().UpdateTable();
+            ServiceFactory.GetPassengers().UpdateTable();
+            ServiceFactory.GetReservations().UpdateTable();
+            ServiceFactory.GetStaffs().UpdateTable();
 
+        }
+
+        public List<bool> GetSeatsFlag(Guid flightID)
+        {
+            Flight f = ServiceFactory.GetFlights().GetFlightByID(flightID);
+           
+            uint flightCapacity = f.airplane.capacity;
+            List<uint> freeSeats = DBFacade.GetFreeSeats(flightID);
+
+            List<bool> seatsFlag = new List<bool>((int)flightCapacity);
+  
+            for(int i = 0 ; i<flightCapacity ; ++i)
+            {
+                seatsFlag.Add(false);
+                foreach(uint j in freeSeats)
+                {
+                    if (j == i+1)
+                    {
+                        seatsFlag[i] = true;
+                        break;
+                    }
+                }
+
+            }
+
+            return seatsFlag;
         }
 
         Staff currentStaff;

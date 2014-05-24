@@ -26,6 +26,7 @@ namespace FlightReservationSystem
             String city = CityTextBox.Text;
 
             reservationSystem.AddAirport(name, new Location(country, city));
+            this.Close();
         }
     }
 }
